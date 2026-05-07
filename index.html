@@ -212,15 +212,15 @@ button { font-family: var(--font); }
   animation: hero-nav-in 0.8s cubic-bezier(0,0,0.2,1) both;
 }
 .nav-inner {
-  display: flex; align-items: center; justify-content: space-between; height: 90px;
+  display: flex; align-items: center; justify-content: space-between; height: 100px;
 }
 /* Logo is 1024×1024 with transparent padding — set img taller than nav so
    the container clips the transparent margins and shows just the badge. */
 .nav-logo {
   display: flex; align-items: center; flex-shrink: 0;
-  height: 90px; overflow: hidden;
+  height: 100px; overflow: hidden; margin-left: -18px;
 }
-.nav-logo img { height: 176px; width: auto; display: block; }
+.nav-logo img { height: 196px; width: auto; display: block; }
 .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
 .nav-links a {
   font-size: 13.5px; font-weight: 400; color: var(--ink-mid);
@@ -909,10 +909,10 @@ footer { background: var(--navy-950); color: rgba(255,255,255,0.5); padding: 80p
 }
 /* Same clip trick as nav — container crops transparent padding so badge fills it */
 .footer-logo-wrap {
-  height: 90px; overflow: hidden;
-  display: flex; align-items: center; margin-bottom: 20px;
+  height: 100px; overflow: hidden;
+  display: flex; align-items: center; margin-bottom: 20px; margin-left: -18px;
 }
-.footer-logo-img { height: 176px; width: auto; display: block; }
+.footer-logo-img { height: 196px; width: auto; display: block; }
 .footer-brand p { font-size: 14px; line-height: 1.8; margin-bottom: 20px; }
 .footer-brand a { color: rgba(255,255,255,0.85); font-size: 16px; font-weight: 600; }
 .footer-col h5 {

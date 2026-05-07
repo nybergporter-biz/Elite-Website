@@ -210,17 +210,16 @@ button { font-family: var(--font); }
   border-bottom: 1px solid rgba(0,0,0,0.07);
   transition: background 0.3s;
   animation: hero-nav-in 0.8s cubic-bezier(0,0,0.2,1) both;
-  overflow: visible;
 }
 .nav-inner {
-  display: flex; align-items: center; justify-content: space-between; height: 100px;
+  display: flex; align-items: center; justify-content: space-between; height: 130px;
 }
-/* Logo top-aligns to nav top and breaks downward into the hero only. */
+/* Logo fills the full nav height, contained within the white bar. */
 .nav-logo {
-  display: flex; align-items: flex-start; flex-shrink: 0;
-  height: 100px; overflow: visible; margin-left: -18px;
+  display: flex; align-items: center; flex-shrink: 0;
+  height: 130px; overflow: hidden; margin-left: -18px;
 }
-.nav-logo img { height: 340px; width: auto; display: block; filter: drop-shadow(0 6px 24px rgba(0,0,0,0.22)); }
+.nav-logo img { height: 254px; width: auto; display: block; }
 .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
 .nav-links a {
   font-size: 13.5px; font-weight: 400; color: var(--ink-mid);

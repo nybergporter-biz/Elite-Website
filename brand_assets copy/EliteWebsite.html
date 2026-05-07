@@ -1,0 +1,2854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elite Junk Solutions | Junk Removal South Jordan, Utah</title>
+<meta name="description" content="Fast, affordable junk removal in South Jordan, Utah—same-day service available. Serving South Jordan & Salt Lake County. Call (801) 441-5090.">
+<meta name="keywords" content="junk removal South Jordan Utah, junk hauling Salt Lake County, same-day junk removal, appliance removal Utah, cleanout services South Jordan">
+<link rel="canonical" href="https://elitejunkut.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   DESIGN SYSTEM — ELITE JUNK SOLUTIONS PREMIUM REDESIGN
+   Aesthetic: Refined Minimal × Editorial × Apple-clean
+============================================================ */
+
+:root {
+  /* Core Palette */
+  --white: #ffffff;
+  --bg: #fafaf8;
+  --bg2: #f2f1ef;
+  --ink: #111111;
+  --ink-mid: #3a3a3a;
+  --ink-light: #6e6e73;
+  --ink-xlight: #a0a0a6;
+  --border: #e5e5e3;
+  --border-subtle: #f0f0ee;
+
+  /* Accent — Used sparingly */
+  --accent: #e85c1a;
+  --accent-deep: #c9480f;
+  --accent-pale: rgba(232,92,26,0.08);
+
+  /* Cards & surfaces */
+  --card: #ffffff;
+  --card-shadow: 0 2px 20px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04);
+  --card-shadow-hover: 0 12px 40px rgba(0,0,0,0.10), 0 4px 12px rgba(0,0,0,0.06);
+
+  /* Typography */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+
+  /* Spacing scale */
+  --sp-xs: 8px;
+  --sp-sm: 16px;
+  --sp-md: 24px;
+  --sp-lg: 40px;
+  --sp-xl: 64px;
+  --sp-2xl: 96px;
+  --sp-3xl: 128px;
+
+  /* Geometry */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+
+  /* Transitions */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ============================================================
+   RESET & BASE
+============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body {
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--white);
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* ============================================================
+   LAYOUT
+============================================================ */
+.container { max-width: 1120px; margin: 0 auto; padding: 0 var(--sp-lg); }
+.container--narrow { max-width: 800px; margin: 0 auto; padding: 0 var(--sp-lg); }
+.section { padding: var(--sp-3xl) 0; }
+.section--sm { padding: var(--sp-2xl) 0; }
+.section--bg { background: var(--bg); }
+.section--bg2 { background: var(--bg2); }
+
+/* ============================================================
+   TYPOGRAPHY
+============================================================ */
+.display {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 6.5vw, 88px);
+  font-weight: 700;
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+.display--sm {
+  font-size: clamp(36px, 4.5vw, 60px);
+}
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+}
+.heading--sm {
+  font-size: clamp(22px, 2.5vw, 32px);
+}
+.label {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+}
+.body-lg { font-size: 18px; line-height: 1.7; color: var(--ink-mid); }
+.body-md { font-size: 16px; line-height: 1.65; color: var(--ink-mid); }
+.body-sm { font-size: 14px; line-height: 1.6; color: var(--ink-light); }
+
+/* ============================================================
+   BUTTONS
+============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s var(--ease);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.btn--primary {
+  background: var(--accent);
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 100px;
+}
+.btn--primary:hover {
+  background: var(--accent-deep);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(232,92,26,0.28);
+}
+.btn--secondary {
+  background: transparent;
+  color: var(--ink);
+  padding: 14px 28px;
+  border-radius: 100px;
+  border: 1.5px solid var(--border);
+}
+.btn--secondary:hover {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: #fff;
+}
+.btn--ghost {
+  background: transparent;
+  color: var(--ink-light);
+  padding: 10px 20px;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+  font-size: 13px;
+}
+.btn--ghost:hover { border-color: var(--ink-light); color: var(--ink); }
+.btn--dark {
+  background: var(--ink);
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 100px;
+}
+.btn--dark:hover {
+  background: var(--ink-mid);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+.btn--lg { padding: 17px 36px; font-size: 16px; }
+.btn--sm { padding: 10px 20px; font-size: 13px; }
+
+/* ============================================================
+   TOP ANNOUNCEMENT BAR
+============================================================ */
+.announcement-bar {
+  background: var(--ink);
+  color: rgba(255,255,255,0.88);
+  text-align: center;
+  padding: 11px 20px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+.announcement-bar a { color: #fff; font-weight: 700; text-decoration: underline; text-underline-offset: 2px; }
+
+/* ============================================================
+   NAVIGATION
+============================================================ */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  transition: background 0.3s;
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+}
+.logo {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 19px;
+  color: var(--ink);
+  letter-spacing: -0.03em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.logo-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: inline-block;
+  margin-bottom: 2px;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--ink-mid);
+  padding: 7px 12px;
+  border-radius: 8px;
+  transition: all 0.2s;
+  letter-spacing: -0.01em;
+}
+.nav-links a:hover { color: var(--ink); background: var(--bg2); }
+.nav-links a.active { color: var(--ink); font-weight: 600; }
+.nav-cta-btn {
+  background: var(--accent);
+  color: #fff !important;
+  border-radius: 100px !important;
+  padding: 8px 18px !important;
+  font-weight: 600 !important;
+}
+.nav-cta-btn:hover { background: var(--accent-deep) !important; background-color: var(--accent-deep) !important; }
+
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; border-radius: 8px; }
+.hamburger span { display: block; width: 22px; height: 1.5px; background: var(--ink); border-radius: 2px; transition: 0.3s; }
+.mobile-menu {
+  display: none;
+  background: #fff;
+  border-top: 1px solid var(--border);
+  padding: var(--sp-sm);
+}
+.mobile-menu a {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 13px 16px;
+  border-radius: 10px;
+  color: var(--ink-mid);
+  transition: background 0.15s;
+}
+.mobile-menu a:hover { background: var(--bg); }
+.mobile-menu.open { display: block; }
+
+/* ============================================================
+   HERO
+============================================================ */
+.hero {
+  background: var(--white);
+  padding: var(--sp-3xl) 0;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  right: -100px;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232,92,26,0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -100px;
+  left: -200px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,0,0,0.025) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 440px;
+  gap: var(--sp-2xl);
+  align-items: center;
+}
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--accent-pale);
+  border: 1px solid rgba(232,92,26,0.15);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 100px;
+  margin-bottom: var(--sp-md);
+}
+.hero-eyebrow::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+.hero-headline {
+  font-family: var(--font-display);
+  font-size: clamp(44px, 6vw, 76px);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  margin-bottom: var(--sp-md);
+}
+.hero-headline em {
+  font-style: italic;
+  color: var(--accent);
+}
+.hero-sub {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--ink-light);
+  line-height: 1.6;
+  margin-bottom: var(--sp-lg);
+  max-width: 460px;
+}
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-sm);
+  flex-wrap: wrap;
+}
+.hero-phone-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink-mid);
+  transition: color 0.2s;
+}
+.hero-phone-link:hover { color: var(--ink); }
+.hero-trust-row {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-lg);
+  margin-top: var(--sp-2xl);
+  padding-top: var(--sp-xl);
+  border-top: 1px solid var(--border);
+}
+.trust-stat .num {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  line-height: 1;
+}
+.trust-stat .desc {
+  font-size: 12.5px;
+  color: var(--ink-light);
+  margin-top: 3px;
+}
+.trust-divider {
+  width: 1px;
+  height: 36px;
+  background: var(--border);
+}
+
+/* Hero Form Card */
+.hero-form-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: var(--sp-lg);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04);
+  position: relative;
+}
+.hero-form-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), #ff7d42);
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+}
+.form-title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  margin-bottom: 6px;
+}
+.form-subtitle { font-size: 13.5px; color: var(--ink-light); margin-bottom: var(--sp-md); }
+.field-group { margin-bottom: 12px; }
+.field-group label {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  margin-bottom: 6px;
+}
+.field-group input,
+.field-group select,
+.field-group textarea {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 11px 14px;
+  transition: all 0.2s;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.field-group input:focus,
+.field-group select:focus,
+.field-group textarea:focus {
+  border-color: var(--accent);
+  background: var(--white);
+  box-shadow: 0 0 0 3px rgba(232,92,26,0.1);
+}
+.field-group textarea { resize: vertical; min-height: 80px; }
+.form-note { font-size: 12px; color: var(--ink-xlight); text-align: center; margin-top: 10px; }
+.form-success-msg {
+  display: none;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: var(--radius-sm);
+  padding: 16px 20px;
+  font-size: 14px;
+  color: #166534;
+  font-weight: 500;
+  margin-top: 12px;
+  text-align: center;
+}
+
+/* ============================================================
+   TRUST BAR
+============================================================ */
+.trust-bar {
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: var(--sp-lg) 0;
+}
+.trust-bar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.trust-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink-mid);
+}
+.trust-pill-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* ============================================================
+   SECTION HEADER
+============================================================ */
+.section-header {
+  margin-bottom: var(--sp-2xl);
+}
+.section-header--center {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto var(--sp-2xl);
+}
+.section-header .heading { margin-top: var(--sp-sm); }
+.section-header p { margin-top: 14px; }
+
+/* ============================================================
+   HOW IT WORKS
+============================================================ */
+.steps-editorial {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-xl) var(--sp-2xl);
+  margin-top: var(--sp-2xl);
+  counter-reset: steps;
+}
+.step-item {
+  display: flex;
+  gap: var(--sp-md);
+  counter-increment: steps;
+}
+.step-num {
+  font-family: var(--font-display);
+  font-size: 52px;
+  font-weight: 700;
+  color: var(--border);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  min-width: 52px;
+  flex-shrink: 0;
+  user-select: none;
+}
+.step-content {}
+.step-content h4 {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.step-content p { font-size: 14.5px; color: var(--ink-light); line-height: 1.65; }
+
+/* ============================================================
+   SERVICE CARDS
+============================================================ */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-md);
+  margin-top: var(--sp-2xl);
+}
+.service-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-lg);
+  transition: all 0.3s var(--ease);
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+}
+.service-card:hover {
+  box-shadow: var(--card-shadow-hover);
+  border-color: transparent;
+  transform: translateY(-3px);
+}
+.service-icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--bg2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin-bottom: var(--sp-md);
+  transition: background 0.2s;
+}
+.service-card:hover .service-icon-wrap { background: var(--accent-pale); }
+.service-card h3 {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.service-card p { font-size: 14px; color: var(--ink-light); line-height: 1.6; }
+.service-card-arrow {
+  position: absolute;
+  bottom: var(--sp-lg);
+  right: var(--sp-lg);
+  color: var(--border);
+  font-size: 18px;
+  transition: all 0.2s;
+}
+.service-card:hover .service-card-arrow { color: var(--accent); transform: translate(2px, -2px); }
+
+/* ============================================================
+   PRICING
+============================================================ */
+.pricing-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--sp-sm);
+  margin-top: var(--sp-2xl);
+}
+.price-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-lg) var(--sp-md);
+  text-align: center;
+  transition: all 0.3s var(--ease);
+}
+.price-card:hover {
+  box-shadow: var(--card-shadow-hover);
+  border-color: transparent;
+  transform: translateY(-3px);
+}
+.price-card.featured {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+}
+.price-card .label { color: var(--ink-xlight); display: block; margin-bottom: 10px; }
+.price-card.featured .label { color: rgba(255,255,255,0.45); }
+.price-amount {
+  font-family: var(--font-display);
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.price-card.featured .price-amount { color: #fff; }
+.price-from {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--ink-xlight);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.price-card.featured .price-from { color: rgba(255,255,255,0.4); }
+.pricing-note-bar {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--sp-md) var(--sp-lg);
+  margin-top: var(--sp-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-md);
+  flex-wrap: wrap;
+}
+.pricing-note-bar .notes { font-size: 13.5px; color: var(--ink-light); line-height: 1.6; }
+.pricing-note-bar .payments { display: flex; gap: 10px; flex-wrap: wrap; }
+.pay-chip {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-mid);
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 5px 12px;
+}
+
+/* ============================================================
+   PROMISES STRIP
+============================================================ */
+.promises-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-top: var(--sp-2xl);
+}
+.promise-item {
+  background: var(--white);
+  padding: var(--sp-lg);
+  text-align: center;
+  transition: background 0.2s;
+}
+.promise-item:hover { background: var(--bg); }
+.promise-emoji {
+  font-size: 28px;
+  margin-bottom: 12px;
+  display: block;
+}
+.promise-item strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.promise-item span { font-size: 13px; color: var(--ink-light); }
+
+/* ============================================================
+   REVIEWS
+============================================================ */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-md);
+  margin-top: var(--sp-2xl);
+}
+.review-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-lg);
+  transition: all 0.3s var(--ease);
+}
+.review-card:hover { box-shadow: var(--card-shadow-hover); border-color: transparent; transform: translateY(-2px); }
+.review-stars {
+  color: #f5a623;
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+}
+.review-text {
+  font-size: 15px;
+  font-style: italic;
+  color: var(--ink-mid);
+  line-height: 1.7;
+  margin-bottom: var(--sp-md);
+  font-family: var(--font-display);
+  font-weight: 300;
+}
+.review-meta {}
+.review-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.review-type {
+  font-size: 12px;
+  color: var(--ink-xlight);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 2px;
+}
+
+/* ============================================================
+   FAQ
+============================================================ */
+.faq-list { margin-top: var(--sp-2xl); }
+.faq-item {
+  border-bottom: 1px solid var(--border);
+}
+.faq-item:first-child { border-top: 1px solid var(--border); }
+.faq-q {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--ink);
+  user-select: none;
+  transition: color 0.2s;
+  gap: var(--sp-md);
+}
+.faq-q:hover { color: var(--accent); }
+.faq-toggle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--bg2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 14px;
+  color: var(--ink-light);
+  transition: all 0.25s var(--ease);
+}
+.faq-item.open .faq-toggle {
+  background: var(--accent);
+  color: #fff;
+  transform: rotate(45deg);
+}
+.faq-a {
+  display: none;
+  padding: 0 0 20px;
+  font-size: 15px;
+  color: var(--ink-light);
+  line-height: 1.7;
+  max-width: 680px;
+}
+.faq-item.open .faq-a { display: block; }
+
+/* ============================================================
+   GALLERY
+============================================================ */
+.gallery-masonry-layout {
+  columns: 3;
+  column-gap: var(--sp-md);
+  margin-top: var(--sp-2xl);
+}
+.gallery-card {
+  break-inside: avoid;
+  margin-bottom: var(--sp-md);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--bg2);
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.gallery-card:hover { transform: scale(1.01); box-shadow: var(--card-shadow-hover); }
+.gallery-placeholder-inner {
+  aspect-ratio: 4/3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--ink-xlight);
+  background: var(--bg2);
+}
+.gallery-placeholder-inner .gallery-icon { font-size: 32px; }
+.gallery-caption {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 40px 16px 14px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.5));
+  color: #fff;
+  font-size: 13.5px;
+  font-weight: 500;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.gallery-card:hover .gallery-caption { opacity: 1; }
+.gallery-grid-layout {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-md);
+  margin-top: var(--sp-2xl);
+}
+.gallery-carousel { position: relative; margin-top: var(--sp-2xl); }
+.carousel-track {
+  display: flex;
+  gap: var(--sp-md);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding-bottom: 4px;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+.carousel-track .gallery-card { scroll-snap-align: start; flex: 0 0 360px; margin-bottom: 0; }
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 1px solid var(--border);
+  box-shadow: var(--card-shadow);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  color: var(--ink);
+  transition: all 0.2s;
+  z-index: 2;
+}
+.carousel-btn:hover { box-shadow: var(--card-shadow-hover); }
+.carousel-btn.prev { left: -16px; }
+.carousel-btn.next { right: -16px; }
+.carousel-dots { display: flex; justify-content: center; gap: 6px; margin-top: 16px; }
+.carousel-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--border);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.2s;
+}
+.carousel-dot.active { background: var(--ink); width: 20px; border-radius: 100px; }
+
+/* Gallery Lightbox */
+.gallery-lightbox-overlay {
+  display: none;
+  position: fixed; inset: 0;
+  z-index: 20050;
+  background: rgba(0,0,0,0.85);
+  align-items: center;
+  justify-content: center;
+  padding: var(--sp-lg);
+  backdrop-filter: blur(8px);
+}
+.gallery-lightbox-overlay.active { display: flex; }
+.gallery-lightbox-inner { position: relative; max-width: 1000px; max-height: 90vh; }
+.gallery-lightbox-inner img { max-width: 100%; max-height: 80vh; border-radius: var(--radius-lg); display: block; }
+.gallery-lightbox-caption {
+  color: rgba(255,255,255,0.75);
+  font-size: 14px;
+  text-align: center;
+  margin-top: 14px;
+}
+.gallery-lightbox-placeholder {
+  background: var(--bg);
+  border-radius: var(--radius-lg);
+  padding: 40px 30px;
+  text-align: center;
+  color: var(--ink-light);
+  font-size: 15px;
+}
+.gallery-lightbox-close {
+  position: absolute;
+  top: -16px; right: -16px;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--white);
+  border: none;
+  color: var(--ink);
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: var(--card-shadow);
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* ============================================================
+   CTA SECTION
+============================================================ */
+.cta-section {
+  background: var(--ink);
+  padding: var(--sp-3xl) 0;
+  position: relative;
+  overflow: hidden;
+}
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at 80% 50%, rgba(232,92,26,0.15) 0%, transparent 60%);
+  pointer-events: none;
+}
+.cta-inner { position: relative; text-align: center; }
+.cta-inner .heading { color: #fff; }
+.cta-inner p { color: rgba(255,255,255,0.6); margin-top: 14px; font-size: 17px; }
+.cta-actions { display: flex; align-items: center; justify-content: center; gap: var(--sp-sm); margin-top: var(--sp-xl); flex-wrap: wrap; }
+.btn--white {
+  background: #fff;
+  color: var(--ink);
+  padding: 15px 32px;
+  border-radius: 100px;
+  font-size: 15px;
+  font-weight: 600;
+}
+.btn--white:hover { background: var(--bg); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(255,255,255,0.15); }
+.btn--outline-white {
+  background: transparent;
+  color: rgba(255,255,255,0.85);
+  border: 1.5px solid rgba(255,255,255,0.2);
+  padding: 14px 28px;
+  border-radius: 100px;
+  font-size: 15px;
+  font-weight: 500;
+}
+.btn--outline-white:hover { border-color: rgba(255,255,255,0.6); color: #fff; }
+
+/* ============================================================
+   ABOUT PAGE
+============================================================ */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-2xl);
+  align-items: center;
+}
+.about-img-area {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: var(--bg2);
+  aspect-ratio: 4/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 80px;
+  color: var(--ink-xlight);
+}
+.about-img-area img { width: 100%; height: 100%; object-fit: cover; }
+.why-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-sm);
+  margin-top: var(--sp-xl);
+}
+.why-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: var(--sp-md);
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  transition: all 0.25s var(--ease);
+}
+.why-item:hover { border-color: var(--accent); transform: translateY(-1px); }
+.why-check {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--accent-pale);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.why-item h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 3px;
+}
+.why-item p { font-size: 13px; color: var(--ink-light); }
+
+/* ============================================================
+   CONTACT
+============================================================ */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-md);
+  margin-top: var(--sp-2xl);
+}
+.contact-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-lg);
+  text-align: center;
+  transition: all 0.25s var(--ease);
+}
+.contact-card:hover { box-shadow: var(--card-shadow-hover); border-color: transparent; transform: translateY(-2px); }
+.contact-card .contact-icon { font-size: 32px; margin-bottom: 14px; display: block; }
+.contact-card h4 {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.contact-card p { font-size: 13.5px; color: var(--ink-light); margin-bottom: 10px; }
+.contact-card a { font-size: 17px; font-weight: 600; color: var(--accent); }
+
+/* ============================================================
+   PAGE HERO
+============================================================ */
+.page-hero {
+  padding: var(--sp-2xl) 0;
+  border-bottom: 1px solid var(--border);
+}
+.page-hero .label { margin-bottom: 14px; display: block; }
+.page-hero .heading { margin-top: 0; }
+.page-hero p { margin-top: 12px; font-size: 17px; color: var(--ink-light); max-width: 560px; }
+
+/* ============================================================
+   ITEMS GRID (What we take)
+============================================================ */
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: var(--sp-lg);
+}
+.item-tag {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--ink-mid);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: border-color 0.2s;
+}
+.item-tag:hover { border-color: var(--accent); }
+.item-tag::before { content: '✓'; color: var(--accent); font-weight: 700; font-size: 12px; flex-shrink: 0; }
+.no-items-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: var(--sp-md);
+}
+.no-item-tag {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #b91c1c;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.no-item-tag::before { content: '✕'; font-weight: 700; font-size: 12px; flex-shrink: 0; }
+
+/* ============================================================
+   HOW IT WORKS (Detail Page)
+============================================================ */
+.steps-detail { max-width: 760px; margin: var(--sp-2xl) auto 0; }
+.step-detail-item {
+  display: flex;
+  gap: var(--sp-xl);
+  padding: var(--sp-xl) 0;
+  border-bottom: 1px solid var(--border);
+}
+.step-detail-item:last-child { border-bottom: none; }
+.step-detail-num {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--border);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  min-width: 48px;
+  flex-shrink: 0;
+}
+.step-detail-content h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.step-detail-content p { font-size: 15px; color: var(--ink-light); line-height: 1.7; }
+
+/* ============================================================
+   INDUSTRIES
+============================================================ */
+.industry-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-md);
+  margin-top: var(--sp-2xl);
+}
+.industry-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-lg);
+  transition: all 0.25s var(--ease);
+}
+.industry-card:hover { background: var(--white); box-shadow: var(--card-shadow); transform: translateY(-2px); }
+.industry-card .ind-icon { font-size: 28px; margin-bottom: 14px; }
+.industry-card h4 {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.industry-card p { font-size: 13.5px; color: var(--ink-light); }
+
+/* ============================================================
+   FOOTER
+============================================================ */
+footer {
+  background: var(--ink);
+  color: rgba(255,255,255,0.55);
+  padding: var(--sp-2xl) 0 0;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: var(--sp-2xl);
+  padding-bottom: var(--sp-2xl);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.footer-logo {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 22px;
+  color: #fff;
+  letter-spacing: -0.03em;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.footer-logo .logo-dot { background: var(--accent); }
+.footer-desc { font-size: 14px; line-height: 1.75; margin-bottom: var(--sp-md); }
+.footer-contact a { color: rgba(255,255,255,0.85); font-size: 16px; font-weight: 600; }
+.footer-col h5 {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 18px;
+}
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 10px; }
+.footer-col ul li a { font-size: 14px; color: rgba(255,255,255,0.55); transition: color 0.2s; }
+.footer-col ul li a:hover { color: #fff; }
+.footer-hours p { font-size: 14px; line-height: 2; }
+.footer-bottom {
+  text-align: center;
+  padding: 20px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.25);
+}
+.footer-quote {
+  text-align: center;
+  padding: var(--sp-xl) 0;
+}
+.footer-quote h4 {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: -0.025em;
+  margin-bottom: var(--sp-md);
+}
+
+/* ============================================================
+   POPUP
+============================================================ */
+.popup-overlay {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 10000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  backdrop-filter: blur(4px);
+}
+.popup-overlay.active { display: flex; }
+.popup-box {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  padding: var(--sp-xl);
+  max-width: 440px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.2);
+  animation: popIn 0.35s var(--ease);
+}
+@keyframes popIn { from { transform: scale(0.92) translateY(10px); opacity: 0; } to { transform: scale(1) translateY(0); opacity: 1; } }
+.popup-close {
+  position: absolute;
+  top: 16px; right: 16px;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--bg2);
+  border: none;
+  color: var(--ink-light);
+  font-size: 16px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s;
+}
+.popup-close:hover { background: var(--border); color: var(--ink); }
+.popup-box h3 {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+.popup-box p { font-size: 14.5px; color: var(--ink-light); margin-bottom: var(--sp-lg); }
+
+/* ============================================================
+   STICKY MOBILE
+============================================================ */
+.sticky-call {
+  display: none;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 9999;
+  padding: 12px 16px;
+  background: rgba(255,255,255,0.95);
+  border-top: 1px solid var(--border);
+  backdrop-filter: blur(10px);
+}
+.sticky-call a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 100px;
+  padding: 15px;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* ============================================================
+   SCROLL REVEAL
+============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.65s var(--ease), transform 0.65s var(--ease);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ============================================================
+   PAGE ROUTING
+============================================================ */
+.page { display: none; }
+.page.active { display: block; }
+
+/* ============================================================
+   HOURS TABLE
+============================================================ */
+.hours-table {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  max-width: 560px;
+  margin-top: var(--sp-xl);
+}
+.hours-row-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 15px var(--sp-lg);
+  border-bottom: 1px solid var(--border);
+  font-size: 15px;
+}
+.hours-row-item:last-child { border-bottom: none; }
+.hours-row-item .day { font-weight: 500; color: var(--ink); }
+.hours-row-item .time { color: var(--ink-light); }
+.hours-row-item .time.closed { color: var(--ink-xlight); font-style: italic; }
+
+/* ============================================================
+   QUOTE FORM PAGE
+============================================================ */
+.quote-form-wrap {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: var(--sp-xl);
+  max-width: 660px;
+  margin: var(--sp-2xl) auto 0;
+  box-shadow: var(--card-shadow);
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-md); }
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+@media (max-width: 1024px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-form-card { max-width: 520px; }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .pricing-row { grid-template-columns: repeat(3, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .promises-grid { grid-template-columns: repeat(2, 1fr); }
+  .items-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .services-grid { grid-template-columns: 1fr; }
+  .pricing-row { grid-template-columns: repeat(2, 1fr); }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .about-grid { grid-template-columns: 1fr; }
+  .gallery-masonry-layout { columns: 2; }
+  .gallery-grid-layout { grid-template-columns: repeat(2, 1fr); }
+  .industry-grid { grid-template-columns: 1fr; }
+  .why-list { grid-template-columns: 1fr; }
+  .steps-editorial { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .items-grid { grid-template-columns: repeat(2, 1fr); }
+  .no-items-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero-trust-row { flex-wrap: wrap; gap: var(--sp-md); }
+  .trust-divider { display: none; }
+  .hero-actions { flex-direction: column; align-items: flex-start; }
+  .sticky-call { display: block; }
+  body { padding-bottom: 70px; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .promises-grid { grid-template-columns: 1fr 1fr; }
+  :root { --sp-3xl: 80px; --sp-2xl: 64px; }
+}
+@media (max-width: 480px) {
+  .gallery-masonry-layout { columns: 1; }
+  .promises-grid { grid-template-columns: 1fr; }
+  .pricing-row { grid-template-columns: repeat(2, 1fr); }
+  .container { padding: 0 var(--sp-md); }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     ANNOUNCEMENT BAR
+============================================================ -->
+<div class="announcement-bar">
+  ⚡ Same-day junk removal available — call <a href="tel:8014415090">(801) 441-5090</a>
+</div>
+
+<!-- ============================================================
+     NAVIGATION
+============================================================ -->
+<nav class="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#" class="logo" onclick="showPage('home');return false;">
+        Elite Junk<span class="logo-dot"></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#" onclick="showPage('home');return false;" id="nav-home" class="active">Home</a></li>
+        <li><a href="#" onclick="showPage('services');return false;" id="nav-services">Services</a></li>
+        <li><a href="#" onclick="showPage('pricing');return false;" id="nav-pricing">Pricing</a></li>
+        <li><a href="#" onclick="showPage('about');return false;" id="nav-about">About</a></li>
+        <li><a href="#" onclick="showPage('gallery');return false;" id="nav-gallery">Gallery</a></li>
+        <li><a href="#" onclick="showPage('reviews');return false;" id="nav-reviews">Reviews</a></li>
+        <li><a href="#" onclick="showPage('howitworks');return false;" id="nav-howitworks">How It Works</a></li>
+        <li><a href="#" onclick="showPage('quote');return false;" id="nav-quote" class="nav-cta-btn">Get a Quote</a></li>
+      </ul>
+      <div class="hamburger" onclick="toggleMobile()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#" onclick="showPage('home');toggleMobile();return false;">Home</a>
+    <a href="#" onclick="showPage('services');toggleMobile();return false;">Services</a>
+    <a href="#" onclick="showPage('pricing');toggleMobile();return false;">Pricing</a>
+    <a href="#" onclick="showPage('about');toggleMobile();return false;">About</a>
+    <a href="#" onclick="showPage('gallery');toggleMobile();return false;">Gallery</a>
+    <a href="#" onclick="showPage('reviews');toggleMobile();return false;">Reviews</a>
+    <a href="#" onclick="showPage('howitworks');toggleMobile();return false;">How It Works</a>
+    <a href="#" onclick="showPage('quote');toggleMobile();return false;" style="color:var(--accent);font-weight:600;">Get a Quote →</a>
+    <a href="tel:8014415090" style="font-weight:600;">📞 (801) 441-5090</a>
+  </div>
+</nav>
+
+<!-- ============================================================
+     PAGE: HOME
+============================================================ -->
+<div class="page active" id="page-home">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <!-- Left: Copy -->
+        <div class="hero-content">
+          <div class="hero-eyebrow reveal">Same-day service available</div>
+          <h1 class="hero-headline reveal reveal-delay-1">
+            Junk removal<br>that shows up<br><em>on time.</em>
+          </h1>
+          <p class="hero-sub reveal reveal-delay-2">
+            Fast, affordable cleanouts in South Jordan &amp; Salt Lake County. Upfront pricing, no hidden fees — ever.
+          </p>
+          <div class="hero-actions reveal reveal-delay-3">
+            <a href="#" class="btn btn--primary btn--lg" onclick="showPage('quote');return false;">Request a Quote</a>
+            <a href="tel:8014415090" class="hero-phone-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.29 6.29l1.28-1.28a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              (801) 441-5090
+            </a>
+          </div>
+
+          <div class="hero-trust-row reveal reveal-delay-4">
+            <div class="trust-stat">
+              <div class="num">100%</div>
+              <div class="desc">Upfront pricing</div>
+            </div>
+            <div class="trust-divider"></div>
+            <div class="trust-stat">
+              <div class="num">Same day</div>
+              <div class="desc">Often available</div>
+            </div>
+            <div class="trust-divider"></div>
+            <div class="trust-stat">
+              <div class="num">Local</div>
+              <div class="desc">South Jordan, UT</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Quote Form -->
+        <div class="hero-form-card reveal reveal-delay-2">
+          <div class="form-title">Get a Free Estimate</div>
+          <p class="form-subtitle">We'll respond within 24 hours. For same-day service, call us.</p>
+          <form onsubmit="submitHeroForm(event)">
+            <div class="field-group">
+              <label>Your Name</label>
+              <input type="text" placeholder="Full name" required>
+            </div>
+            <div class="field-group">
+              <label>Phone Number</label>
+              <input type="tel" placeholder="(801) 000-0000" required>
+            </div>
+            <div class="field-group">
+              <label>Service Needed</label>
+              <select>
+                <option value="">Select a service...</option>
+                <option>Residential Cleanout</option>
+                <option>Commercial Cleanout</option>
+                <option>Appliance / Furniture Removal</option>
+                <option>Yard Waste Removal</option>
+                <option>Construction Debris</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn--primary" style="width:100%;">Request Free Estimate →</button>
+          </form>
+          <div id="heroFormSuccess" class="form-success-msg">✅ Thanks! We'll get back to you within 24 hours. For same-day: <strong>(801) 441-5090</strong></div>
+          <p class="form-note">🚨 Need same-day? Call <a href="tel:8014415090" style="color:var(--accent);font-weight:600;">(801) 441-5090</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="container">
+      <div class="trust-bar-inner">
+        <div class="trust-pill"><span class="trust-pill-dot"></span>Homeowners</div>
+        <div class="trust-pill"><span class="trust-pill-dot"></span>Realtors</div>
+        <div class="trust-pill"><span class="trust-pill-dot"></span>Property Managers</div>
+        <div class="trust-pill"><span class="trust-pill-dot"></span>Contractors</div>
+        <div class="trust-pill"><span class="trust-pill-dot"></span>HOAs</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="label">Simple Process</span>
+        <h2 class="heading reveal">Five steps to a clear space.</h2>
+      </div>
+      <div class="steps-editorial">
+        <div class="step-item reveal">
+          <div class="step-num">01</div>
+          <div class="step-content">
+            <h4>Call, text, or request online</h4>
+            <p>Reach out however works best. Include photos for the most accurate estimate.</p>
+          </div>
+        </div>
+        <div class="step-item reveal reveal-delay-1">
+          <div class="step-num">02</div>
+          <div class="step-content">
+            <h4>Free upfront estimate</h4>
+            <p>No vague pricing — you'll know exactly what to expect before we arrive.</p>
+          </div>
+        </div>
+        <div class="step-item reveal reveal-delay-2">
+          <div class="step-num">03</div>
+          <div class="step-content">
+            <h4>Schedule your pickup</h4>
+            <p>Flexible hours, Monday through Saturday. Same-day slots often available.</p>
+          </div>
+        </div>
+        <div class="step-item reveal reveal-delay-3">
+          <div class="step-num">04</div>
+          <div class="step-content">
+            <h4>We haul it away</h4>
+            <p>We do all the heavy lifting, quickly and carefully, confirming price on arrival.</p>
+          </div>
+        </div>
+        <div class="step-item reveal">
+          <div class="step-num">05</div>
+          <div class="step-content">
+            <h4>Sweep up &amp; done</h4>
+            <p>We clean the area, collect payment, and leave your space truly clear.</p>
+          </div>
+        </div>
+        <div class="step-item reveal reveal-delay-1" style="align-items:flex-end;">
+          <a href="#" class="btn btn--dark" onclick="showPage('howitworks');return false;" style="margin-bottom:4px;">Full process details →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES PREVIEW -->
+  <section class="section section--bg">
+    <div class="container">
+      <div class="section-header">
+        <span class="label">What We Do</span>
+        <h2 class="heading reveal">From single items to full cleanouts.</h2>
+        <p class="body-lg reveal reveal-delay-1">We handle residential, commercial, and everything in between.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-icon-wrap">🏠</div>
+          <h3>Residential Cleanouts</h3>
+          <p>Garages, basements, attics, and estate cleanouts. We handle it all so you don't have to.</p>
+          <div class="service-card-arrow">→</div>
+        </div>
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-icon-wrap">🏢</div>
+          <h3>Commercial Cleanouts</h3>
+          <p>Office furniture, retail fixtures, warehouse overstock. Flexible scheduling for businesses.</p>
+          <div class="service-card-arrow">→</div>
+        </div>
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-icon-wrap">🪑</div>
+          <h3>Appliance &amp; Furniture</h3>
+          <p>Sofas, mattresses, washers, dryers, refrigerators. Single items are welcome.</p>
+          <div class="service-card-arrow">→</div>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon-wrap">🌿</div>
+          <h3>Yard Waste Removal</h3>
+          <p>Brush, branches, old playsets, patio furniture, and full garden cleanup.</p>
+          <div class="service-card-arrow">→</div>
+        </div>
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-icon-wrap">🏗️</div>
+          <h3>Construction Debris</h3>
+          <p>Scrap wood, drywall, renovation debris, and flooring materials removed fast.</p>
+          <div class="service-card-arrow">→</div>
+        </div>
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-icon-wrap">📦</div>
+          <h3>Cardboard Recycling</h3>
+          <p>Flattened boxes, tape OK. We take them off your hands and recycle responsibly.</p>
+          <div class="service-card-arrow">→</div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:var(--sp-xl);" class="reveal">
+        <a href="#" class="btn btn--secondary" onclick="showPage('services');return false;">View all services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROMISES -->
+  <section class="section section--sm">
+    <div class="container">
+      <div class="section-header--center">
+        <span class="label">Our Promise</span>
+        <h2 class="heading reveal">What you can always expect.</h2>
+      </div>
+      <div class="promises-grid reveal">
+        <div class="promise-item">
+          <span class="promise-emoji">💰</span>
+          <strong>Upfront Pricing</strong>
+          <span>No hidden fees. Ever.</span>
+        </div>
+        <div class="promise-item">
+          <span class="promise-emoji">⏰</span>
+          <strong>On-Time Arrival</strong>
+          <span>We respect your schedule.</span>
+        </div>
+        <div class="promise-item">
+          <span class="promise-emoji">🧹</span>
+          <strong>We Sweep Up</strong>
+          <span>Clean space, every job.</span>
+        </div>
+        <div class="promise-item">
+          <span class="promise-emoji">⚡</span>
+          <strong>Same-Day Available</strong>
+          <span>Call (801) 441-5090</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING PREVIEW -->
+  <section class="section section--bg2">
+    <div class="container">
+      <div class="section-header">
+        <span class="label">Transparent Pricing</span>
+        <h2 class="heading reveal">Priced by volume. No surprises.</h2>
+        <p class="body-lg reveal reveal-delay-1">Free estimates. Final price confirmed on-site before we start.</p>
+      </div>
+      <div class="pricing-row">
+        <div class="price-card reveal">
+          <span class="label">Single Item</span>
+          <div class="price-amount">$89</div>
+          <div class="price-from">starting from</div>
+        </div>
+        <div class="price-card reveal reveal-delay-1">
+          <span class="label">1/4 Trailer</span>
+          <div class="price-amount">$150</div>
+          <div class="price-from">starting from</div>
+        </div>
+        <div class="price-card featured reveal reveal-delay-2">
+          <span class="label">1/2 Trailer</span>
+          <div class="price-amount">$225</div>
+          <div class="price-from">starting from</div>
+        </div>
+        <div class="price-card reveal reveal-delay-3">
+          <span class="label">3/4 Trailer</span>
+          <div class="price-amount">$315</div>
+          <div class="price-from">starting from</div>
+        </div>
+        <div class="price-card reveal reveal-delay-4">
+          <span class="label">Full Trailer</span>
+          <div class="price-amount">$425</div>
+          <div class="price-from">starting from</div>
+        </div>
+      </div>
+      <div class="pricing-note-bar reveal">
+        <p class="notes">Final price confirmed on-site. Varies by item type, access, and load size.</p>
+        <div class="payments">
+          <span class="pay-chip">Cash</span>
+          <span class="pay-chip">Credit / Debit</span>
+          <span class="pay-chip">Checks</span>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:var(--sp-xl);" class="reveal">
+        <a href="#" class="btn btn--secondary" onclick="showPage('pricing');return false;">Full pricing details</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS PREVIEW -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="label">Customer Reviews</span>
+        <h2 class="heading reveal">Don't take our word for it.</h2>
+        <p class="body-lg reveal reveal-delay-1">Real reviews from homeowners, realtors, and contractors across Salt Lake County.</p>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card reveal">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Showed up on time, gave me an upfront price, and had everything loaded in under an hour. Even swept the garage floor. Can't recommend them enough!"</p>
+          <div class="review-name">Sarah M.</div>
+          <div class="review-type">Homeowner</div>
+        </div>
+        <div class="review-card reveal reveal-delay-1">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"I manage several rental properties and use Elite Junk Solutions every time a tenant moves out. Fast, professional, and always on schedule."</p>
+          <div class="review-name">James R.</div>
+          <div class="review-type">Property Manager</div>
+        </div>
+        <div class="review-card reveal reveal-delay-2">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Needed same-day pickup before a listing — called in the morning, they were there by noon. Seriously impressive response time."</p>
+          <div class="review-name">Lisa T.</div>
+          <div class="review-type">Realtor</div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:var(--sp-xl);" class="reveal">
+        <a href="#" class="btn btn--secondary" onclick="showPage('reviews');return false;">Read more reviews</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section--bg">
+    <div class="container--narrow">
+      <div class="section-header">
+        <span class="label">FAQ</span>
+        <h2 class="heading reveal">Common questions.</h2>
+      </div>
+      <div class="faq-list" id="homeFaqList">
+        <div class="faq-item reveal">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            How does pricing work?
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-a">We price by volume — how much space your junk takes in our trailer. Final price always confirmed on-site. No surprise charges.</div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            Do you offer same-day junk removal?
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-a">Yes! Same-day service is often available. Call or text (801) 441-5090. For online requests, allow 24 hours.</div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            What items do you take?
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-a">Furniture, appliances, yard waste, electronics, construction debris, and much more. We cannot take hazardous materials — liquid paint, chemicals, fuels, asbestos, or propane tanks.</div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            What payment methods do you accept?
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-a">Cash, credit/debit cards, and checks. Payment collected after the job is complete.</div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            What areas do you serve?
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-a">We're based in South Jordan, Utah and serve greater Salt Lake County. Not sure? Call us at (801) 441-5090.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="cta-section">
+    <div class="container cta-inner reveal">
+      <h2 class="heading" style="color:#fff;">Ready to clear the clutter?</h2>
+      <p>Same-day service often available. Upfront pricing. We sweep up after every job.</p>
+      <div class="cta-actions">
+        <a href="#" class="btn btn--primary btn--lg" onclick="showPage('quote');return false;">Request a Quote</a>
+        <a href="tel:8014415090" class="btn--outline-white btn" style="padding:14px 28px;border-radius:100px;">📞 (801) 441-5090</a>
+        <a href="sms:8014415090" class="btn--outline-white btn" style="padding:14px 28px;border-radius:100px;">💬 Text Us</a>
+      </div>
+    </div>
+  </section>
+
+</div><!-- end page-home -->
+
+<!-- ============================================================
+     PAGE: SERVICES
+============================================================ -->
+<div class="page" id="page-services">
+  <div class="section--bg2" style="padding:var(--sp-2xl) 0 0;">
+    <div class="container">
+      <div class="page-hero reveal">
+        <span class="label">Services</span>
+        <h1 class="heading">Junk removal for every situation.</h1>
+        <p>Serving South Jordan &amp; Salt Lake County — residential, commercial, and more.</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-icon-wrap">🏠</div>
+          <h3>Residential Cleanouts</h3>
+          <p>Garages, basements, attics, storage rooms, estate cleanouts. We clear it all so you can reclaim your space.</p>
+        </div>
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-icon-wrap">🏢</div>
+          <h3>Commercial Cleanouts</h3>
+          <p>Offices, retail stores, warehouses, HOA common areas. Flexible scheduling to minimize disruption.</p>
+        </div>
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-icon-wrap">🧲</div>
+          <h3>Appliance Removal</h3>
+          <p>Washers, dryers, refrigerators, water heaters. Single items welcome — no job too small.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon-wrap">🛋️</div>
+          <h3>Furniture Removal</h3>
+          <p>Sofas, mattresses, bed frames, tables, chairs, dressers, bookshelves, and bulky items of all kinds.</p>
+        </div>
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-icon-wrap">🌿</div>
+          <h3>Yard Waste Removal</h3>
+          <p>Brush, branches, playsets, swing sets, patio furniture, garden tools, and landscaping debris.</p>
+        </div>
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-icon-wrap">🏗️</div>
+          <h3>Construction Debris</h3>
+          <p>Scrap wood, drywall, flooring, cabinets, countertops, and renovation waste removed promptly.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon-wrap">📦</div>
+          <h3>Cardboard Recycling</h3>
+          <p>Moving boxes, tape OK. We take flattened cardboard and recycle it responsibly.</p>
+        </div>
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-icon-wrap">🖥️</div>
+          <h3>Electronics &amp; E-Waste</h3>
+          <p>Old TVs, electronics, and garage clutter disposed of responsibly.</p>
+        </div>
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-icon-wrap">🎸</div>
+          <h3>Specialty Items</h3>
+          <p>Pianos, exercise equipment, and other heavy or awkward items handled with care.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industries -->
+  <section class="section section--bg">
+    <div class="container">
+      <div class="section-header--center reveal">
+        <span class="label">Who We Work With</span>
+        <h2 class="heading">Built for professionals &amp; homeowners.</h2>
+      </div>
+      <div class="industry-grid">
+        <div class="industry-card reveal"><div class="ind-icon">🏠</div><h4>Homeowners &amp; Landlords</h4><p>Cleanouts between tenants or clearing your own space quickly.</p></div>
+        <div class="industry-card reveal reveal-delay-1"><div class="ind-icon">🏢</div><h4>Property Management &amp; HOAs</h4><p>Reliable service across multiple properties, ongoing or one-time.</p></div>
+        <div class="industry-card reveal reveal-delay-2"><div class="ind-icon">🏡</div><h4>Realtors</h4><p>Pre-listing cleanouts and estate preparation on your timeline.</p></div>
+        <div class="industry-card reveal"><div class="ind-icon">🔨</div><h4>Contractors &amp; Roofers</h4><p>Construction debris and renovation waste removed fast.</p></div>
+        <div class="industry-card reveal reveal-delay-1"><div class="ind-icon">🏪</div><h4>Retail, Office &amp; Warehouse</h4><p>Commercial-scale cleanouts with flexible scheduling.</p></div>
+        <div class="industry-card reveal reveal-delay-2"><div class="ind-icon">🌿</div><h4>Landscapers</h4><p>Yard debris, brush, and green waste hauled away efficiently.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Take -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header--center reveal">
+        <span class="label">Item Guide</span>
+        <h2 class="heading">What we take.</h2>
+        <p class="body-md">We accept the vast majority of household and commercial items.</p>
+      </div>
+      <div class="items-grid">
+        <div class="item-tag">Sofas &amp; Couches</div><div class="item-tag">Mattresses &amp; Bed Frames</div>
+        <div class="item-tag">Old Appliances</div><div class="item-tag">Washers &amp; Dryers</div>
+        <div class="item-tag">Refrigerators &amp; Freezers</div><div class="item-tag">Tables &amp; Chairs</div>
+        <div class="item-tag">Carpets &amp; Rugs</div><div class="item-tag">Exercise Equipment</div>
+        <div class="item-tag">Water Heaters</div><div class="item-tag">Cabinets &amp; Countertops</div>
+        <div class="item-tag">Lawn Mowers &amp; Yard Tools</div><div class="item-tag">Seasonal Decorations</div>
+        <div class="item-tag">BBQ Grills</div><div class="item-tag">Bicycles &amp; Scooters</div>
+        <div class="item-tag">Boxes &amp; Storage Containers</div><div class="item-tag">Old Toys &amp; Games</div>
+        <div class="item-tag">Bookshelves</div><div class="item-tag">Office Desks &amp; Chairs</div>
+        <div class="item-tag">Mirrors &amp; Wall Art</div><div class="item-tag">Renovation Debris</div>
+        <div class="item-tag">Electronics &amp; TVs</div><div class="item-tag">Garage Clutter</div>
+        <div class="item-tag">Yard Waste</div><div class="item-tag">Playsets &amp; Swing Sets</div>
+        <div class="item-tag">Garden Tools &amp; Supplies</div><div class="item-tag">Scrap Wood &amp; Lumber</div>
+        <div class="item-tag">Patio Furniture</div><div class="item-tag">Pianos &amp; Instruments</div>
+      </div>
+
+      <div style="margin-top:var(--sp-2xl);">
+        <div class="section-header--center reveal">
+          <span class="label">Restricted Items</span>
+          <h2 class="heading">What we cannot take.</h2>
+          <p class="body-md">For safety and regulatory reasons, the following items are excluded.</p>
+        </div>
+        <div class="no-items-grid">
+          <div class="no-item-tag">Wet / Liquid Paint</div><div class="no-item-tag">Pool Chemicals &amp; Pesticides</div>
+          <div class="no-item-tag">Bleach &amp; Solvents</div><div class="no-item-tag">Gasoline &amp; Motor Oil</div>
+          <div class="no-item-tag">Kerosene &amp; Antifreeze</div><div class="no-item-tag">Asbestos</div>
+          <div class="no-item-tag">Sharps &amp; Medical Waste</div><div class="no-item-tag">Prescription Drugs</div>
+          <div class="no-item-tag">Propane Tanks</div><div class="no-item-tag">Fire Extinguishers</div>
+          <div class="no-item-tag">Fireworks &amp; Explosives</div><div class="no-item-tag">Ammunition &amp; Bullets</div>
+        </div>
+        <p style="font-size:14px;color:var(--ink-light);margin-top:16px;">Unsure about a specific item? Call <a href="tel:8014415090" style="color:var(--accent);font-weight:600;">(801) 441-5090</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container cta-inner reveal">
+      <h2 class="heading" style="color:#fff;">Ready to book your cleanout?</h2>
+      <div class="cta-actions">
+        <a href="#" class="btn btn--primary btn--lg" onclick="showPage('quote');return false;">Get a Free Quote</a>
+        <a href="tel:8014415090" class="btn--outline-white btn">📞 (801) 441-5090</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============================================================
+     PAGE: PRICING
+============================================================ -->
+<div class="page" id="page-pricing">
+  <div class="section--bg2" style="padding:var(--sp-2xl) 0 0;">
+    <div class="container">
+      <div class="page-hero reveal">
+        <span class="label">Pricing</span>
+        <h1 class="heading">Volume-based pricing. No hidden fees.</h1>
+        <p>Starting prices below. Final price confirmed on-site before we start.</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="pricing-row">
+        <div class="price-card reveal"><span class="label">Single Item</span><div class="price-amount">$89</div><div class="price-from">starting from</div></div>
+        <div class="price-card reveal reveal-delay-1"><span class="label">1/4 Trailer</span><div class="price-amount">$150</div><div class="price-from">starting from</div></div>
+        <div class="price-card featured reveal reveal-delay-2"><span class="label">1/2 Trailer</span><div class="price-amount">$225</div><div class="price-from">starting from</div></div>
+        <div class="price-card reveal reveal-delay-3"><span class="label">3/4 Trailer</span><div class="price-amount">$315</div><div class="price-from">starting from</div></div>
+        <div class="price-card reveal reveal-delay-4"><span class="label">Full Trailer</span><div class="price-amount">$425</div><div class="price-from">starting from</div></div>
+      </div>
+      <div class="pricing-note-bar reveal">
+        <p class="notes">✅ Final price always confirmed on-site before we start loading.<br>Pricing varies by item type, access, and total load size.</p>
+        <div class="payments"><span class="pay-chip">💵 Cash</span><span class="pay-chip">💳 Credit / Debit</span><span class="pay-chip">🏦 Checks</span></div>
+      </div>
+
+      <div style="margin-top:var(--sp-3xl);">
+        <div class="section-header--center reveal">
+          <span class="label">3 Simple Steps</span>
+          <h2 class="heading">How our pricing works.</h2>
+        </div>
+        <div class="steps-detail">
+          <div class="step-detail-item reveal">
+            <div class="step-detail-num">01</div>
+            <div class="step-detail-content">
+              <h3>Send details &amp; photos</h3>
+              <p>Call, text, or submit a quote form with photos of your items. We'll give you a starting estimate right away.</p>
+            </div>
+          </div>
+          <div class="step-detail-item reveal reveal-delay-1">
+            <div class="step-detail-num">02</div>
+            <div class="step-detail-content">
+              <h3>On-site volume confirmation</h3>
+              <p>When we arrive, we confirm the final price based on actual volume in the trailer. No surprises, ever.</p>
+            </div>
+          </div>
+          <div class="step-detail-item reveal reveal-delay-2">
+            <div class="step-detail-num">03</div>
+            <div class="step-detail-content">
+              <h3>Haul away &amp; payment</h3>
+              <p>Once you approve the price, we load everything up, sweep the area, and collect payment when done.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container cta-inner reveal">
+      <h2 class="heading" style="color:#fff;">Not sure what your load costs?</h2>
+      <p>Send us a photo and we'll give you a fast, free estimate — no obligation.</p>
+      <div class="cta-actions">
+        <a href="#" class="btn btn--primary btn--lg" onclick="showPage('quote');return false;">Request Free Estimate</a>
+        <a href="tel:8014415090" class="btn--outline-white btn">📞 (801) 441-5090</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============================================================
+     PAGE: ABOUT
+============================================================ -->
+<div class="page" id="page-about">
+  <section class="section">
+    <div class="container">
+      <div class="about-grid">
+        <div>
+          <span class="label">About Us</span>
+          <h1 class="heading reveal" style="margin-top:14px;">South Jordan's local<br>junk removal experts.</h1>
+          <p class="body-lg reveal reveal-delay-1" style="margin-top:var(--sp-md);">Elite Junk Solutions is locally owned and operated right here in South Jordan, Utah. We're not a franchise or a national chain — we're your neighbors, and we take pride in fast, friendly, professional service to our community.</p>
+          <p class="body-md reveal reveal-delay-2" style="margin-top:var(--sp-md);">From same-day pickups to full property cleanouts, we show up on time, give you upfront pricing, and always clean up after the job. That's our standard — every time, for every customer.</p>
+          <div style="margin-top:var(--sp-xl);" class="reveal reveal-delay-3">
+            <a href="#" class="btn btn--primary" onclick="showPage('quote');return false;">Request a Quote →</a>
+          </div>
+        </div>
+        <div class="about-img-area reveal reveal-delay-1">🚛</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--bg">
+    <div class="container">
+      <div class="section-header--center reveal">
+        <span class="label">Why Choose Us</span>
+        <h2 class="heading">The Elite Junk difference.</h2>
+      </div>
+      <div class="why-list">
+        <div class="why-item reveal"><div class="why-check">✓</div><div><h4>Pricing is always upfront</h4><p>You'll know what you're paying before we start. No hidden fees, ever.</p></div></div>
+        <div class="why-item reveal reveal-delay-1"><div class="why-check">✓</div><div><h4>We always arrive on time</h4><p>When we say we'll be there, we'll be there. Your schedule matters to us.</p></div></div>
+        <div class="why-item reveal"><div class="why-check">✓</div><div><h4>We sweep up after every job</h4><p>We leave your space truly clean — not just with the stuff removed.</p></div></div>
+        <div class="why-item reveal reveal-delay-1"><div class="why-check">✓</div><div><h4>Same-day service available</h4><p>Need it gone today? Call (801) 441-5090. We work hard to make it happen.</p></div></div>
+        <div class="why-item reveal"><div class="why-check">✓</div><div><h4>Local &amp; owner-operated</h4><p>We live here and care about our reputation. You'll always get personal service.</p></div></div>
+        <div class="why-item reveal reveal-delay-1"><div class="why-check">✓</div><div><h4>Fast response times</h4><p>We respond quickly to calls, texts, and quote requests. No ghosting.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container--narrow">
+      <div class="section-header--center reveal">
+        <span class="label">Business Hours</span>
+        <h2 class="heading">When we're open.</h2>
+      </div>
+      <div class="hours-table reveal">
+        <div class="hours-row-item"><span class="day">Monday – Friday</span><span class="time">8:30 AM – 6:00 PM</span></div>
+        <div class="hours-row-item"><span class="day">Saturday</span><span class="time">9:00 AM – 4:00 PM</span></div>
+        <div class="hours-row-item"><span class="day">Sunday</span><span class="time closed">Closed</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container cta-inner reveal">
+      <h2 class="heading" style="color:#fff;">Ready to clear the clutter?</h2>
+      <div class="cta-actions">
+        <a href="#" class="btn btn--primary btn--lg" onclick="showPage('quote');return false;">Request a Quote</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============================================================
+     PAGE: GALLERY
+============================================================ -->
+<div class="page" id="page-gallery">
+  <div class="section--bg2" style="padding:var(--sp-2xl) 0 0;">
+    <div class="container">
+      <div class="page-hero reveal">
+        <span class="label">Gallery</span>
+        <h1 class="heading">Our work, before &amp; after.</h1>
+        <p>Real jobs completed across Salt Lake County.</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="label">Residential</span>
+        <h2 class="heading">Residential cleanouts.</h2>
+      </div>
+      <div class="gallery-grid-layout" id="gallery-residential">
+        <div class="gallery-card" onclick="openLightbox('Garage Cleanout – Before')"><div class="gallery-placeholder-inner"><div class="gallery-icon">📸</div><small>Photo Coming Soon</small></div><div class="gallery-caption">Garage Cleanout – Before</div></div>
+        <div class="gallery-card" onclick="openLightbox('Garage Cleanout – After')"><div class="gallery-placeholder-inner"><div class="gallery-icon">📸</div><small>Photo Coming Soon</small></div><div class="gallery-caption">Garage Cleanout – After</div></div>
+        <div class="gallery-card" onclick="openLightbox('Estate Cleanout – Full Load')"><div class="gallery-placeholder-inner"><div class="gallery-icon">📸</div><small>Photo Coming Soon</small></div><div class="gallery-caption">Estate Cleanout – Full Load</div></div>
+        <div class="gallery-card" onclick="openLightbox('Basement Clear-Out – Before')"><div class="gallery-placeholder-inner"><div class="gallery-icon">📸</div><small>Photo Coming Soon</small></div><div class="gallery-caption">Basement Clear-Out – Before</div></div>
+        <div class="gallery-card" onclick="openLightbox('Basement Clear-Out – After')"><div class="gallery-placeholder-inner"><div class="gallery-icon">📸</div><small>Photo Coming Soon</small></div><div class="gallery-caption">Basement Clear-Out – After</div></div>
+        <div class="gallery-card" onclick="openLightbox('Furniture & Appliance Removal')"><div class="gallery-placeholder-inner"><div class="gallery-icon">📸</div><small>Photo Coming Soon</small></div><div class="gallery-caption">Furniture &amp; Appliance Removal</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--bg">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="label">Commercial</span>
+        <h2 class="heading">Commercial cleanouts.</h2>
+      </div>
+      <div class="gallery-grid-layout" id="gallery-commercial">
+        <div class="gallery-card" onclick="openLightbox('Office Cleanout – Before')"><div class="gallery-placeholder-inner"><div class="gallery-icon">📸</div><small>Photo Coming Soon</small></div><div class="gallery-caption">Office Cleanout – Before</div></div>
+        <div class="gallery-card" onclick="openLightbox('Office Cleanout – After')"><div class="gallery-placeholder-inner"><div class="gallery-icon">📸</div><small>Photo Coming Soon</small></div><div class="gallery-caption">Office Cleanout – After</div></div>
+        <div class="gallery-card" onclick="openLightbox('Construction Debris Hauling')"><div class="gallery-placeholder-inner"><div class="gallery-icon">📸</div><small>Photo Coming Soon</small></div><div class="gallery-caption">Construction Debris Hauling</div></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============================================================
+     PAGE: REVIEWS
+============================================================ -->
+<div class="page" id="page-reviews">
+  <div class="section--bg2" style="padding:var(--sp-2xl) 0 0;">
+    <div class="container">
+      <div class="page-hero reveal">
+        <span class="label">Reviews</span>
+        <h1 class="heading">What our customers say.</h1>
+        <p>Real reviews from homeowners, realtors, and contractors across Salt Lake County.</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="reviews-grid" id="reviewsGrid">
+        <div class="review-card reveal"><div class="review-stars">★★★★★</div><p class="review-text">"Showed up on time, gave me an upfront price, and had everything loaded in under an hour. Even swept the garage floor. Can't recommend them enough!"</p><div class="review-name">Sarah M.</div><div class="review-type">Homeowner</div></div>
+        <div class="review-card reveal reveal-delay-1"><div class="review-stars">★★★★★</div><p class="review-text">"I manage several rental properties and use Elite Junk Solutions every time a tenant moves out. Fast, professional, and always on schedule."</p><div class="review-name">James R.</div><div class="review-type">Property Manager</div></div>
+        <div class="review-card reveal reveal-delay-2"><div class="review-stars">★★★★★</div><p class="review-text">"Needed same-day pickup before a listing — called in the morning and they were there by noon. Seriously impressive response time."</p><div class="review-name">Lisa T.</div><div class="review-type">Realtor</div></div>
+        <div class="review-card reveal"><div class="review-stars">★★★★★</div><p class="review-text">"Used them to clear out a full garage and basement after my parents moved. Respectful, efficient, and made a huge job feel easy."</p><div class="review-name">David K.</div><div class="review-type">Homeowner</div></div>
+        <div class="review-card reveal reveal-delay-1"><div class="review-stars">★★★★★</div><p class="review-text">"Quick, clean, and professional. Construction debris from a bathroom remodel. They came, loaded it up, swept the area, and were gone."</p><div class="review-name">Mike H.</div><div class="review-type">Contractor</div></div>
+        <div class="review-card reveal reveal-delay-2"><div class="review-stars">★★★★★</div><p class="review-text">"Very easy to work with. Texted them a photo, got a price quickly, scheduled the same week. Polite team, worked quickly. Will use again."</p><div class="review-name">Amanda C.</div><div class="review-type">Homeowner</div></div>
+      </div>
+      <div id="reviewsLeaveReviewCta" style="text-align:center;margin-top:var(--sp-2xl);padding:var(--sp-xl);background:var(--bg);border-radius:var(--radius-lg);border:1px solid var(--border);" class="reveal">
+        <h3 style="font-family:var(--font-display);font-size:24px;margin-bottom:8px;">Had a great experience?</h3>
+        <p style="color:var(--ink-light);margin-bottom:var(--sp-lg);">Leave us a review and help other homeowners find reliable junk removal in Salt Lake County.</p>
+        <a href="#" id="reviewsLeaveReviewBtn" class="btn btn--primary">⭐ Leave Us a Review</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============================================================
+     PAGE: HOW IT WORKS
+============================================================ -->
+<div class="page" id="page-howitworks">
+  <div class="section--bg2" style="padding:var(--sp-2xl) 0 0;">
+    <div class="container">
+      <div class="page-hero reveal">
+        <span class="label">Process</span>
+        <h1 class="heading">Simple, stress-free junk removal.</h1>
+        <p>From first contact to final sweep — here's exactly what to expect.</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container--narrow">
+      <div class="steps-detail">
+        <div class="step-detail-item reveal">
+          <div class="step-detail-num">01</div>
+          <div class="step-detail-content">
+            <h3>Call, text, or request online</h3>
+            <p>Start by reaching out however is easiest. Call or text <strong>(801) 441-5090</strong>, or fill out our online form. Include photos if possible for the most accurate estimate. For same-day service, calling is always the fastest route.</p>
+          </div>
+        </div>
+        <div class="step-detail-item reveal">
+          <div class="step-detail-num">02</div>
+          <div class="step-detail-content">
+            <h3>Get your free estimate</h3>
+            <p>We'll review your request and provide a clear, upfront starting estimate based on the information and photos you've shared. No vague pricing, no hidden fees — you'll always know what to expect.</p>
+          </div>
+        </div>
+        <div class="step-detail-item reveal">
+          <div class="step-detail-num">03</div>
+          <div class="step-detail-content">
+            <h3>Schedule your pickup</h3>
+            <p>Choose a day and time that works for you. We offer flexible scheduling Monday through Saturday. Same-day appointments are often available — just ask when you call.</p>
+          </div>
+        </div>
+        <div class="step-detail-item reveal">
+          <div class="step-detail-num">04</div>
+          <div class="step-detail-content">
+            <h3>We show up &amp; haul it away</h3>
+            <p>Our team arrives on time within your window. We confirm the final price on-site before we start. Then we do all the heavy lifting — quickly and carefully. Tip: have items gathered and accessible to speed things up.</p>
+          </div>
+        </div>
+        <div class="step-detail-item reveal">
+          <div class="step-detail-num">05</div>
+          <div class="step-detail-content">
+            <h3>We sweep up &amp; you're done</h3>
+            <p>Once your junk is loaded, we sweep the area and collect payment after the job is complete to your satisfaction. We accept cash, credit/debit cards, and checks.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:var(--bg);border-left:3px solid var(--accent);padding:var(--sp-lg) var(--sp-xl);border-radius:0 var(--radius-md) var(--radius-md) 0;margin-top:var(--sp-xl);" class="reveal">
+        <h3 style="font-family:var(--font-display);font-size:20px;margin-bottom:14px;">How to prepare for your pickup</h3>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;">
+          <li style="display:flex;gap:10px;font-size:14.5px;color:var(--ink-light);"><span style="color:var(--accent);font-weight:700;">✓</span> Gather all items into one location or pile before we arrive</li>
+          <li style="display:flex;gap:10px;font-size:14.5px;color:var(--ink-light);"><span style="color:var(--accent);font-weight:700;">✓</span> Point out exactly which items should be taken</li>
+          <li style="display:flex;gap:10px;font-size:14.5px;color:var(--ink-light);"><span style="color:var(--accent);font-weight:700;">✓</span> Clear a path to items if they're inside the house</li>
+          <li style="display:flex;gap:10px;font-size:14.5px;color:var(--ink-light);"><span style="color:var(--accent);font-weight:700;">✓</span> Keep pets safely inside during the pickup</li>
+        </ul>
+      </div>
+
+      <div style="text-align:center;margin-top:var(--sp-xl);" class="reveal">
+        <a href="#" class="btn btn--primary btn--lg" onclick="showPage('quote');return false;">Ready to get started? Request a Quote →</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============================================================
+     PAGE: QUOTE
+============================================================ -->
+<div class="page" id="page-quote">
+  <section class="section">
+    <div class="container">
+      <div class="section-header--center reveal">
+        <span class="label">Free Estimate</span>
+        <h1 class="heading">Request a free quote.</h1>
+        <p class="body-lg">Fill out the form below and we'll respond within 24 hours.</p>
+      </div>
+
+      <div class="contact-grid" style="max-width:900px;margin:0 auto var(--sp-xl);">
+        <div class="contact-card reveal"><span class="contact-icon">📞</span><h4>Call or Text</h4><p>Fastest for same-day service</p><a href="tel:8014415090">(801) 441-5090</a></div>
+        <div class="contact-card reveal reveal-delay-1"><span class="contact-icon">💬</span><h4>Text a Photo</h4><p>Send photos of your items</p><a href="sms:8014415090">(801) 441-5090</a></div>
+        <div class="contact-card reveal reveal-delay-2"><span class="contact-icon">📋</span><h4>Online Form</h4><p>Fill form below — 24hr response</p><span style="color:var(--ink-xlight);font-size:14px;">↓ See below</span></div>
+      </div>
+
+      <div style="background:rgba(232,92,26,0.06);border:1px solid rgba(232,92,26,0.2);border-radius:var(--radius-md);padding:14px 20px;text-align:center;max-width:660px;margin:0 auto var(--sp-lg);font-size:14px;" class="reveal">
+        🚨 <strong>Need same-day?</strong> Don't use the form — call directly: <a href="tel:8014415090" style="color:var(--accent);font-weight:700;">(801) 441-5090</a>
+      </div>
+
+      <div class="quote-form-wrap reveal">
+        <h2 style="font-family:var(--font-display);font-size:26px;font-weight:600;letter-spacing:-0.025em;margin-bottom:6px;">Request a Quote</h2>
+        <p style="font-size:14px;color:var(--ink-light);margin-bottom:var(--sp-lg);">We confirm details, send your estimate, and schedule pickup. Response within 24 hours.</p>
+        <form onsubmit="submitQuoteForm(event)" id="mainQuoteForm">
+          <div class="form-row">
+            <div class="field-group"><label>Your Name *</label><input type="text" placeholder="Full name" required></div>
+            <div class="field-group"><label>Phone Number *</label><input type="tel" placeholder="(801) 000-0000" required></div>
+          </div>
+          <div class="field-group"><label>Service Address *</label><input type="text" placeholder="Street address, city, ZIP" required></div>
+          <div class="field-group"><label>Service Type *</label>
+            <select required>
+              <option value="">Select service...</option>
+              <option>Residential Cleanout</option>
+              <option>Commercial Cleanout</option>
+              <option>Appliance Removal</option>
+              <option>Furniture Removal</option>
+              <option>Yard Waste Removal</option>
+              <option>Construction Debris</option>
+              <option>Cardboard Recycling</option>
+              <option>Other / Multiple Services</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="field-group"><label>Preferred Date</label><input type="date"></div>
+            <div class="field-group"><label>Preferred Time</label>
+              <select>
+                <option value="">Any time</option>
+                <option>Morning (8:30 AM – 12 PM)</option>
+                <option>Afternoon (12 PM – 4 PM)</option>
+                <option>Late Afternoon (4 PM – 6 PM)</option>
+              </select>
+            </div>
+          </div>
+          <div class="field-group"><label>Photo Upload (optional but helpful)</label><input type="file" accept="image/*" multiple style="padding:10px 14px;cursor:pointer;"><small style="color:var(--ink-xlight);font-size:12px;margin-top:4px;display:block;">Photos help us give the most accurate estimate.</small></div>
+          <div class="field-group"><label>Additional Notes</label><textarea rows="3" placeholder="Any other details about your junk removal needs..."></textarea></div>
+          <button type="submit" class="btn btn--primary btn--lg" style="width:100%;">Submit Quote Request →</button>
+        </form>
+        <div class="form-success-msg" id="quoteFormSuccess" style="margin-top:var(--sp-md);">
+          ✅ <strong>Thanks! We've received your request.</strong> We'll respond within 24 hours.<br>
+          <span style="font-size:13px;margin-top:6px;display:block;">For same-day: <a href="tel:8014415090" style="color:var(--accent);font-weight:700;">(801) 441-5090</a></span>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Elite Junk<span class="logo-dot"></span></div>
+        <p class="footer-desc">Fast, affordable junk removal in South Jordan, Utah. Same-day service available. Serving South Jordan &amp; Salt Lake County.</p>
+        <div class="footer-contact">
+          <a href="tel:8014415090">(801) 441-5090</a>
+          <p style="margin-top:6px;font-size:13px;">📍 South Jordan, UT</p>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Pages</h5>
+        <ul>
+          <li><a href="#" onclick="showPage('home');return false;">Home</a></li>
+          <li><a href="#" onclick="showPage('services');return false;">Services</a></li>
+          <li><a href="#" onclick="showPage('pricing');return false;">Pricing</a></li>
+          <li><a href="#" onclick="showPage('about');return false;">About</a></li>
+          <li><a href="#" onclick="showPage('gallery');return false;">Gallery</a></li>
+          <li><a href="#" onclick="showPage('reviews');return false;">Reviews</a></li>
+          <li><a href="#" onclick="showPage('howitworks');return false;">How It Works</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="#" onclick="showPage('services');return false;">Residential Cleanouts</a></li>
+          <li><a href="#" onclick="showPage('services');return false;">Commercial Cleanouts</a></li>
+          <li><a href="#" onclick="showPage('services');return false;">Appliance Removal</a></li>
+          <li><a href="#" onclick="showPage('services');return false;">Furniture Removal</a></li>
+          <li><a href="#" onclick="showPage('services');return false;">Yard Waste</a></li>
+          <li><a href="#" onclick="showPage('services');return false;">Construction Debris</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Hours</h5>
+        <div class="footer-hours">
+          <p>Mon–Fri: 8:30 AM – 6:00 PM</p>
+          <p>Saturday: 9:00 AM – 4:00 PM</p>
+          <p>Sunday: Closed</p>
+        </div>
+        <div style="margin-top:var(--sp-lg);">
+          <h5>Service Area</h5>
+          <p style="font-size:14px;">South Jordan &amp; Salt Lake County, Utah</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-quote">
+    <div class="container">
+      <h4>Get a free estimate today.</h4>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+        <a href="#" class="btn btn--primary" onclick="showPage('quote');return false;">📋 Request a Quote</a>
+        <a href="tel:8014415090" class="btn--outline-white btn">📞 (801) 441-5090</a>
+        <a href="sms:8014415090" class="btn--outline-white btn">💬 Text Us</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">&copy; 2025 Elite Junk Solutions | South Jordan, UT | elitejunkut.com</div>
+</footer>
+
+<!-- STICKY MOBILE CALL BUTTON -->
+<div class="sticky-call">
+  <a href="tel:8014415090">📞 Call Now — (801) 441-5090</a>
+</div>
+
+<!-- GALLERY LIGHTBOX -->
+<div id="galleryLightbox" class="gallery-lightbox-overlay" role="dialog">
+  <button class="gallery-lightbox-close" onclick="closeLightbox()">×</button>
+  <div class="gallery-lightbox-inner">
+    <img id="galleryLightboxImg" alt="" style="display:none;">
+    <div id="galleryLightboxPlaceholder" class="gallery-lightbox-placeholder"></div>
+    <div id="galleryLightboxCaption" class="gallery-lightbox-caption"></div>
+  </div>
+</div>
+
+<!-- POPUP MODAL -->
+<div class="popup-overlay" id="quotePopup">
+  <div class="popup-box">
+    <button class="popup-close" onclick="closePopup()">×</button>
+    <div style="font-size:40px;margin-bottom:10px;">🚛</div>
+    <h3>Need junk gone today?</h3>
+    <p>Request a quote now — same-day service often available. We respond quickly!</p>
+    <a href="#" class="btn btn--primary" style="width:100%;margin-bottom:10px;" onclick="showPage('quote');closePopup();return false;">📋 Request a Quote</a>
+    <a href="tel:8014415090" class="btn btn--secondary" style="width:100%;">📞 Call (801) 441-5090</a>
+    <p style="text-align:center;font-size:12px;color:var(--ink-xlight);margin-top:14px;cursor:pointer;" onclick="closePopup()">No thanks, I'll browse first</p>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   NAVIGATION
+============================================================ */
+function showPage(pageId) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const page = document.getElementById('page-' + pageId);
+  if (page) page.classList.add('active');
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  const navEl = document.getElementById('nav-' + pageId);
+  if (navEl) navEl.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Re-trigger scroll reveals
+  setTimeout(() => initReveal(), 100);
+  return false;
+}
+
+function toggleMobile() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+/* ============================================================
+   FAQ
+============================================================ */
+function toggleFaq(el) {
+  el.parentElement.classList.toggle('open');
+}
+
+/* ============================================================
+   SCROLL REVEAL
+============================================================ */
+function initReveal() {
+  const els = document.querySelectorAll('.reveal:not(.visible)');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  els.forEach(el => observer.observe(el));
+}
+
+/* ============================================================
+   FORMS
+============================================================ */
+function submitHeroForm(e) {
+  e.preventDefault();
+  try {
+    const form = e.target;
+    const name = form.querySelector('input[type="text"]')?.value?.trim() || '';
+    const phone = form.querySelector('input[type="tel"]')?.value?.trim() || '';
+    const service = form.querySelector('select')?.value?.trim() || '';
+    const cfg = getSiteConfig();
+    const toEmail = cfg?.branding?.email || cfg?.contact?.email || 'elitejunksolutionsutah@gmail.com';
+    const subject = encodeURIComponent('Estimate request');
+    const body = encodeURIComponent(`Name: ${name}\nPhone: ${phone}\nService: ${service}\n\nFrom: elitejunkut.com`);
+    window.location.href = `mailto:${encodeURIComponent(toEmail)}?subject=${subject}&body=${body}`;
+  } catch (_) {}
+  document.getElementById('heroFormSuccess').style.display = 'block';
+  e.target.style.display = 'none';
+}
+
+function submitQuoteForm(e) {
+  e.preventDefault();
+  try {
+    const form = document.getElementById('mainQuoteForm');
+    const inputs = Array.from(form.querySelectorAll('input, select, textarea'));
+    const name = inputs.find(i => i.type === 'text')?.value?.trim() || '';
+    const phone = inputs.find(i => i.type === 'tel')?.value?.trim() || '';
+    const address = inputs.find(i => i.placeholder?.includes('Street address'))?.value?.trim() || '';
+    const serviceType = form.querySelector('select[required]')?.value?.trim() || '';
+    const notes = form.querySelector('textarea')?.value?.trim() || '';
+    const cfg = getSiteConfig();
+    const toEmail = cfg?.branding?.email || cfg?.contact?.email || 'elitejunksolutionsutah@gmail.com';
+    const subject = encodeURIComponent('Quote request (Website)');
+    const body = encodeURIComponent(`Name: ${name}\nPhone: ${phone}\nAddress: ${address}\nService: ${serviceType}\n\nNotes:\n${notes}\n\nFrom: elitejunkut.com`);
+    window.location.href = `mailto:${encodeURIComponent(toEmail)}?subject=${subject}&body=${body}`;
+  } catch (_) {}
+  document.getElementById('quoteFormSuccess').style.display = 'block';
+  document.getElementById('mainQuoteForm').style.display = 'none';
+}
+
+/* ============================================================
+   POPUP
+============================================================ */
+let popupShown = false;
+function closePopup() { document.getElementById('quotePopup').classList.remove('active'); }
+window.addEventListener('scroll', () => {
+  if (!popupShown) {
+    const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+    if (pct >= 50) { popupShown = true; document.getElementById('quotePopup').classList.add('active'); }
+  }
+}, { passive: true });
+document.addEventListener('DOMContentLoaded', () => {
+  const popup = document.getElementById('quotePopup');
+  if (popup) popup.addEventListener('click', e => { if (e.target === popup) closePopup(); });
+});
+
+/* ============================================================
+   GALLERY LIGHTBOX
+============================================================ */
+function escapeHtml(s) {
+  return String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+function openLightbox(a, b) {
+  let url = '', caption = '';
+  if (typeof b === 'string') { url = String(a || '').trim(); caption = b; } else { caption = String(a || ''); }
+  const overlay = document.getElementById('galleryLightbox');
+  const img = document.getElementById('galleryLightboxImg');
+  const capEl = document.getElementById('galleryLightboxCaption');
+  const ph = document.getElementById('galleryLightboxPlaceholder');
+  if (!overlay || !img) return;
+  capEl.textContent = caption;
+  if (url) {
+    img.src = url; img.style.display = 'block';
+    if (ph) ph.style.display = 'none';
+  } else {
+    img.removeAttribute('src'); img.style.display = 'none';
+    if (ph) { ph.style.display = 'block'; ph.innerHTML = caption ? '📸 <strong>Photo placeholder</strong><br>' + escapeHtml(caption) : '📸 Add photos in the admin panel.'; }
+  }
+  overlay.classList.add('active');
+}
+function openLightboxFromCard(el) {
+  if (!el) return;
+  const url = decodeURIComponent(el.getAttribute('data-lb-url') || '');
+  const caption = decodeURIComponent(el.getAttribute('data-lb-cap') || '');
+  openLightbox(url, caption);
+}
+function closeLightbox() {
+  const overlay = document.getElementById('galleryLightbox');
+  const img = document.getElementById('galleryLightboxImg');
+  if (overlay) overlay.classList.remove('active');
+  if (img) { img.removeAttribute('src'); img.style.display = 'none'; }
+  const ph = document.getElementById('galleryLightboxPlaceholder');
+  if (ph) ph.style.display = 'none';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+/* ============================================================
+   CAROUSEL
+============================================================ */
+function clearGalleryCarouselTimers() {
+  (window.__ejsCarouselTimers || []).forEach(clearInterval);
+  window.__ejsCarouselTimers = [];
+}
+function setupGalleryCarousel(container, cfg, count) {
+  if (!container || cfg.style !== 'carousel') return;
+  const track = container.querySelector('.carousel-track');
+  const prev = container.querySelector('.carousel-btn.prev');
+  const next = container.querySelector('.carousel-btn.next');
+  if (!track) return;
+  const step = () => Math.max(240, Math.min(420, track.clientWidth ? track.clientWidth * 0.82 : 320));
+  if (cfg.carouselArrows === false) { if (prev) prev.style.display='none'; if (next) next.style.display='none'; }
+  if (prev) prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
+  if (next) next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
+  if (cfg.carouselDots && count > 1) {
+    const existing = container.querySelector('.carousel-dots');
+    if (existing) existing.remove();
+    const dotsRow = document.createElement('div');
+    dotsRow.className = 'carousel-dots';
+    for (let i = 0; i < count; i++) {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+      b.setAttribute('aria-label', 'Slide ' + (i+1));
+      const si = i;
+      b.addEventListener('click', () => track.scrollTo({ left: si * step(), behavior: 'smooth' }));
+      dotsRow.appendChild(b);
+    }
+    container.appendChild(dotsRow);
+    const syncDots = () => {
+      const idx = Math.round(track.scrollLeft / Math.max(1, step()));
+      dotsRow.querySelectorAll('.carousel-dot').forEach((d,j) => d.classList.toggle('active', j === Math.max(0, Math.min(count-1, idx))));
+    };
+    track.addEventListener('scroll', syncDots, { passive: true });
+  }
+  if (cfg.carouselAutoplay && count > 1) {
+    const ms = Math.max(1500, Number(cfg.carouselSpeed) || 4000);
+    const id = setInterval(() => {
+      if (track.scrollWidth <= track.clientWidth + 8) return;
+      const max = track.scrollWidth - track.clientWidth;
+      if (track.scrollLeft >= max - 8) track.scrollTo({ left: 0, behavior: 'smooth' });
+      else track.scrollBy({ left: step(), behavior: 'smooth' });
+    }, ms);
+    window.__ejsCarouselTimers = window.__ejsCarouselTimers || [];
+    window.__ejsCarouselTimers.push(id);
+  }
+}
+
+/* ============================================================
+   ADMIN CONFIG
+============================================================ */
+function getSiteConfig() {
+  if (window.__EJS_SITE_DATA__ && typeof window.__EJS_SITE_DATA__ === 'object') return window.__EJS_SITE_DATA__;
+  try { const raw = localStorage.getItem('ejsAdminData'); if (!raw) return null; return JSON.parse(raw); } catch (_) { return null; }
+}
+function normalizePhoneDigits(v) { return String(v || '').replace(/[^\d]/g, ''); }
+function setMetaIfPresent(sel, attr, val) { const el = document.querySelector(sel); if (!el) return; if (attr === 'text') el.textContent = val; else el.setAttribute(attr, val); }
+
+function applySiteConfig(cfg) {
+  if (!cfg || typeof cfg !== 'object') return;
+  clearGalleryCarouselTimers();
+
+  // Logo
+  try {
+    const logoEls = document.querySelectorAll('.navbar .logo, .footer-logo');
+    logoEls.forEach(logoEl => {
+      const style = cfg.branding?.logoStyle || 'text';
+      const text = cfg.branding?.logoText || cfg.branding?.siteName;
+      const img = cfg.branding?.logoImage;
+      if (style === 'image' && typeof img === 'string' && img.length > 20) {
+        logoEl.innerHTML = `<img src="${img}" alt="${(cfg.branding?.siteName || 'Logo').replace(/"/g,'&quot;')}" style="height:32px;max-width:200px;object-fit:contain;display:block;">`;
+      } else if (typeof text === 'string' && text.trim()) {
+        // Preserve the dot
+        logoEl.innerHTML = text + '<span class="logo-dot"></span>';
+      }
+    });
+  } catch (_) {}
+
+  // SEO
+  if (cfg.seo?.pageTitle) document.title = cfg.seo.pageTitle;
+  if (cfg.seo?.metaDesc) setMetaIfPresent('meta[name="description"]', 'content', cfg.seo.metaDesc);
+  if (cfg.seo?.keywords) setMetaIfPresent('meta[name="keywords"]', 'content', cfg.seo.keywords);
+  if (cfg.seo?.canonicalUrl) setMetaIfPresent('link[rel="canonical"]', 'href', cfg.seo.canonicalUrl);
+
+  // Phone / contact
+  const phoneDisplay = cfg.branding?.phone || cfg.contact?.phone;
+  const phoneDigits = normalizePhoneDigits(phoneDisplay);
+  if (phoneDigits) {
+    document.querySelectorAll('a[href^="tel:"]').forEach(a => a.setAttribute('href', `tel:${phoneDigits}`));
+    document.querySelectorAll('a[href^="sms:"]').forEach(a => a.setAttribute('href', `sms:${phoneDigits}`));
+  }
+
+  // Colors
+  if (cfg.branding?.colors) {
+    const c = cfg.branding.colors;
+    const root = document.documentElement;
+    if (c.accent) {
+      root.style.setProperty('--accent', c.accent);
+      const hexToRgba = (hex, a) => { const r = parseInt(hex.slice(1,3),16), g = parseInt(hex.slice(3,5),16), b = parseInt(hex.slice(5,7),16); return `rgba(${r},${g},${b},${a})`; };
+      root.style.setProperty('--accent-pale', hexToRgba(c.accent, 0.08));
+    }
+  }
+
+  // Pricing
+  if (Array.isArray(cfg.pricing?.items)) {
+    document.querySelectorAll('.pricing-row').forEach(grid => {
+      const cards = Array.from(grid.querySelectorAll('.price-card'));
+      cfg.pricing.items.forEach((item, i) => {
+        if (!cards[i]) return;
+        const label = cards[i].querySelector('.label');
+        const amount = cards[i].querySelector('.price-amount');
+        if (label && item?.label) label.textContent = item.label;
+        if (amount && typeof item?.price === 'number') amount.textContent = `$${item.price}`;
+      });
+    });
+  }
+
+  // Services
+  if (Array.isArray(cfg.services?.items)) {
+    document.querySelectorAll('.services-grid').forEach(grid => {
+      grid.innerHTML = cfg.services.items.map(s => `
+        <div class="service-card reveal">
+          <div class="service-icon-wrap">${s.icon || '🔧'}</div>
+          <h3>${escapeHtml(s.title || '')}</h3>
+          <p>${escapeHtml(s.desc || '')}</p>
+          <div class="service-card-arrow">→</div>
+        </div>
+      `).join('');
+    });
+  }
+
+  // Reviews
+  if (Array.isArray(cfg.reviews?.items)) {
+    const showStars = cfg.reviews.showStarRatings !== false;
+    document.querySelectorAll('.reviews-grid').forEach(grid => {
+      grid.innerHTML = cfg.reviews.items.map(r => `
+        <div class="review-card reveal">
+          ${showStars ? `<div class="review-stars">${'★'.repeat(Math.max(0,Math.min(5,r.stars||5)))}</div>` : ''}
+          <p class="review-text">"${escapeHtml(r.text||'')}"</p>
+          <div class="review-name">${escapeHtml(r.name||'')}</div>
+          <div class="review-type">${escapeHtml(r.type||'')}</div>
+        </div>
+      `).join('');
+    });
+  }
+
+  // Leave Review button
+  const reviewBtn = document.getElementById('reviewsLeaveReviewBtn');
+  const reviewCta = document.getElementById('reviewsLeaveReviewCta');
+  if (reviewCta && reviewBtn) {
+    const show = cfg.reviews?.showReviewButton !== false;
+    reviewCta.style.display = show ? '' : 'none';
+    const url = String(cfg.reviews?.googleReviewUrl || '').trim();
+    if (show) {
+      if (url) { reviewBtn.href = url; reviewBtn.target = '_blank'; reviewBtn.rel = 'noopener noreferrer'; }
+      else { reviewBtn.href = '#'; reviewBtn.onclick = e => { e.preventDefault(); alert('Add your Google review link in the admin panel: Reviews → Settings.'); }; }
+    }
+  }
+
+  // FAQ
+  if (Array.isArray(cfg.faq?.items)) {
+    const faqList = document.getElementById('homeFaqList');
+    if (faqList) {
+      faqList.innerHTML = cfg.faq.items.map(item => `
+        <div class="faq-item reveal">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            ${escapeHtml(item.q||'')}
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-a">${escapeHtml(item.a||'')}</div>
+        </div>
+      `).join('');
+    }
+  }
+
+  // Hero text
+  if (cfg.hero?.headline) {
+    const h = document.querySelector('.hero-headline');
+    if (h) { h.textContent = cfg.hero.headline; }
+  }
+  if (cfg.hero?.subheadline || cfg.hero?.locationLine) {
+    const sub = document.querySelector('.hero-sub');
+    const loc = cfg.branding?.serviceArea;
+    if (sub && cfg.hero?.subheadline) sub.textContent = cfg.hero.subheadline;
+  }
+
+  // Gallery
+  if (cfg.gallery && Array.isArray(cfg.gallery.items)) {
+    const g = cfg.gallery;
+    const style = g.style || 'grid';
+    const showCaptions = g.showCaptions !== false;
+    const lightbox = g.lightbox !== false;
+    const residential = g.items.filter(i => (i.category||'residential') === 'residential');
+    const commercial = g.items.filter(i => (i.category||'commercial') === 'commercial');
+
+    const renderCards = (list) => list.map(item => {
+      const cap = String(item.caption||'');
+      const rawUrl = String(item.url||'').trim();
+      const click = lightbox ? `onclick="openLightboxFromCard(this)" data-lb-cap="${encodeURIComponent(cap)}" data-lb-url="${encodeURIComponent(rawUrl)}"` : '';
+      const media = rawUrl
+        ? `<img class="gallery-img" src="${rawUrl.replace(/"/g,'&quot;')}" alt="${escapeHtml(cap)}" style="width:100%;height:100%;object-fit:cover;">`
+        : `<div class="gallery-placeholder-inner"><div class="gallery-icon">${item.emoji||'📸'}</div><small>Photo Coming Soon</small></div>`;
+      const capHtml = showCaptions ? `<div class="gallery-caption">${escapeHtml(cap)}</div>` : '';
+      return `<div class="gallery-card" role="button" tabindex="0" ${click}>${media}${capHtml}</div>`;
+    }).join('');
+
+    const renderContainer = (el, list) => {
+      if (!el) return;
+      if (style === 'carousel') {
+        el.className = 'gallery-carousel';
+        el.innerHTML = `<button class="carousel-btn prev" type="button">‹</button><div class="carousel-track">${renderCards(list)}</div><button class="carousel-btn next" type="button">›</button>`;
+        setupGalleryCarousel(el, { ...g, style: 'carousel' }, list.length);
+      } else if (style === 'masonry') {
+        el.className = 'gallery-masonry-layout';
+        el.innerHTML = renderCards(list);
+      } else {
+        el.className = 'gallery-grid-layout';
+        el.innerHTML = renderCards(list);
+      }
+    };
+
+    renderContainer(document.getElementById('gallery-residential'), residential);
+    renderContainer(document.getElementById('gallery-commercial'), commercial);
+  }
+
+  // Popups
+  if (cfg.popups) {
+    const banner = document.querySelector('.announcement-bar');
+    if (banner && cfg.popups.showTopBanner === false) banner.style.display = 'none';
+    if (banner && cfg.popups.topBannerText) {
+      const phone = cfg.branding?.phone || cfg.contact?.phone || '(801) 441-5090';
+      const digits = normalizePhoneDigits(phone);
+      banner.innerHTML = `⚡ ${escapeHtml(cfg.popups.topBannerText)} <a href="tel:${digits}">${escapeHtml(phone)}</a>`;
+    }
+    if (cfg.popups.showScrollPopup === false) popupShown = true;
+  }
+
+  // Sticky mobile
+  if (cfg.popups?.showStickyMobile === false) {
+    const sc = document.querySelector('.sticky-call');
+    if (sc) sc.style.display = 'none';
+  }
+
+  setTimeout(() => initReveal(), 50);
+}
+
+/* ============================================================
+   INIT
+============================================================ */
+document.addEventListener('DOMContentLoaded', () => {
+  initReveal();
+
+  const lb = document.getElementById('galleryLightbox');
+  if (lb) lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
+
+  const cfg = getSiteConfig();
+  if (cfg) applySiteConfig(cfg);
+  else {
+    const reviewBtn = document.getElementById('reviewsLeaveReviewBtn');
+    if (reviewBtn) reviewBtn.addEventListener('click', e => { e.preventDefault(); alert('Add your Google review link in Admin → Reviews → Settings.'); });
+  }
+});
+
+// Re-observe reveals when navigating
+const _origShowPage = showPage;
+</script>
+</body>
+</html>

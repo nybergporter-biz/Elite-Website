@@ -283,7 +283,7 @@ button { font-family: var(--font); }
 }
 .hero-inner {
   position: relative; z-index: 2;
-  display: flex; flex-direction: column; align-items: center; text-align: center;
+  display: grid; grid-template-columns: 1fr 420px; gap: 64px; align-items: center;
 }
 .hero-eyebrow {
   display: inline-flex; align-items: center; gap: 8px;
@@ -318,8 +318,8 @@ button { font-family: var(--font); }
 .ha-4 { animation: hero-fade-up 0.65s 0.80s cubic-bezier(0.22,1,0.36,1) both; }
 .ha-card { animation: hero-fade-up 0.65s 0.45s cubic-bezier(0.22,1,0.36,1) both; }
 .hero-headline { margin-bottom: 24px; }
-.hero-sub { font-size: 18px; line-height: 1.65; color: rgba(255,255,255,0.6); max-width: 600px; margin: 0 auto 36px; font-weight: 300; }
-.hero-actions { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; margin-bottom: 48px; }
+.hero-sub { font-size: 18px; line-height: 1.65; color: rgba(255,255,255,0.6); max-width: 480px; margin-bottom: 36px; font-weight: 300; }
+.hero-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 48px; }
 .hero-phone-link {
   display: flex; align-items: center; gap: 8px;
   font-size: 15px; font-weight: 400; color: rgba(255,255,255,0.7);
@@ -327,7 +327,7 @@ button { font-family: var(--font); }
 }
 .hero-phone-link:hover { color: rgba(255,255,255,0.95); }
 .hero-stats {
-  display: flex; align-items: center; justify-content: center; gap: 36px;
+  display: flex; align-items: center; gap: 36px;
   padding-top: 36px; border-top: 1px solid rgba(255,255,255,0.1);
 }
 .hero-stat .num {
@@ -1178,7 +1178,7 @@ details.items-group--restricted[open] summary .ig-toggle { background: rgba(255,
   .no-items-grid { grid-template-columns: repeat(2, 1fr); }
   .hero-stats { flex-wrap: wrap; gap: 20px; }
   .hero-stat-div { display: none; }
-  .hero-actions { flex-direction: column; align-items: center; }
+  .hero-actions { flex-direction: column; align-items: flex-start; }
   .sticky-call { display: block; }
   body { padding-bottom: 74px; }
   .footer-grid { grid-template-columns: 1fr; gap: 36px; }
@@ -1276,6 +1276,43 @@ details.items-group--restricted[open] summary .ig-toggle { background: rgba(255,
           </div>
         </div>
 
+        <!-- Quote Form Card -->
+        <div class="hero-card ha-card">
+          <div class="hero-card-accent"></div>
+          <div class="hero-card-body">
+            <div class="hero-card-title">Get a Free Estimate</div>
+            <p class="hero-card-sub">We'll respond within 24 hours. For same-day, call us directly.</p>
+            <form onsubmit="submitHeroForm(event)">
+              <div class="field">
+                <label>Your Name</label>
+                <input type="text" placeholder="Full name" required>
+              </div>
+              <div class="field">
+                <label>Phone Number</label>
+                <input type="tel" placeholder="(385) 000-0000" required>
+              </div>
+              <div class="field">
+                <label>Email Address</label>
+                <input type="email" placeholder="you@email.com" required>
+              </div>
+              <div class="field">
+                <label>Service Needed</label>
+                <select>
+                  <option value="">Select a service...</option>
+                  <option>Residential Cleanout</option>
+                  <option>Commercial Cleanout</option>
+                  <option>Appliance / Furniture Removal</option>
+                  <option>Yard Waste Removal</option>
+                  <option>Construction Debris</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn--primary" style="width:100%;">Request a Pickup →</button>
+            </form>
+            <div id="heroFormSuccess" class="form-success">✅ Thanks! We'll be in touch within 24 hours.<br><strong>Same-day? Call (385) 441-5090</strong></div>
+            <p class="form-note">🚨 Need same-day? <a href="tel:3854415090" style="color:var(--orange);font-weight:600;">(385) 441-5090</a></p>
+          </div>
+        </div>
       </div>
     </div>
   </section>

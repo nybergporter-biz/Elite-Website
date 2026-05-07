@@ -215,12 +215,12 @@ button { font-family: var(--font); }
 .nav-inner {
   display: flex; align-items: center; justify-content: space-between; height: 100px;
 }
-/* Logo breaks out above and below the nav bar intentionally — overflow visible lets the badge float proud of the surface. */
+/* Logo top-aligns to nav top and breaks downward into the hero only. */
 .nav-logo {
-  display: flex; align-items: center; flex-shrink: 0;
+  display: flex; align-items: flex-start; flex-shrink: 0;
   height: 100px; overflow: visible; margin-left: -18px;
 }
-.nav-logo img { height: 260px; width: auto; display: block; filter: drop-shadow(0 4px 18px rgba(0,0,0,0.18)); }
+.nav-logo img { height: 340px; width: auto; display: block; filter: drop-shadow(0 6px 24px rgba(0,0,0,0.22)); }
 .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
 .nav-links a {
   font-size: 13.5px; font-weight: 400; color: var(--ink-mid);

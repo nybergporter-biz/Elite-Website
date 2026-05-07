@@ -2493,28 +2493,39 @@ function initReveal() {
 }
 
 /* ---- Forms ---- */
+var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz2DaIHe99b6ehPPlMTVb4bHZ8wIEm6Q_tW0tHPs7sL69C6V9n208ik8iKcTshK0o2P/exec';
+
 function submitHeroForm(e) {
   e.preventDefault();
   const form = e.target;
-  const name = form.querySelector('input[type="text"]')?.value?.trim() || '';
-  const phone = form.querySelector('input[type="tel"]')?.value?.trim() || '';
-  const service = form.querySelector('select')?.value?.trim() || '';
-  const body = encodeURIComponent(`Name: ${name}\nPhone: ${phone}\nService: ${service}\n\nFrom: elitejunkut.com`);
-  window.location.href = `mailto:elitejunksolutionsutah@gmail.com?subject=${encodeURIComponent('Estimate request')}&body=${body}`;
+  const params = new URLSearchParams({
+    formType: 'hero',
+    name:    form.querySelector('input[type="text"]')?.value?.trim() || '',
+    phone:   form.querySelector('input[type="tel"]')?.value?.trim() || '',
+    email:   form.querySelector('input[type="email"]')?.value?.trim() || '',
+    service: form.querySelector('select')?.value?.trim() || ''
+  });
+  fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: params });
   document.getElementById('heroFormSuccess').style.display = 'block';
   form.style.display = 'none';
 }
+
 function submitQuoteForm(e) {
   e.preventDefault();
   const form = document.getElementById('mainQuoteForm');
   const inputs = Array.from(form.querySelectorAll('input, select, textarea'));
-  const name = inputs.find(i => i.type === 'text')?.value?.trim() || '';
-  const phone = inputs.find(i => i.type === 'tel')?.value?.trim() || '';
-  const address = inputs.find(i => i.placeholder?.includes('Street'))?.value?.trim() || '';
-  const service = form.querySelector('select[required]')?.value?.trim() || '';
-  const notes = form.querySelector('textarea')?.value?.trim() || '';
-  const body = encodeURIComponent(`Name: ${name}\nPhone: ${phone}\nAddress: ${address}\nService: ${service}\n\nNotes:\n${notes}\n\nFrom: elitejunkut.com`);
-  window.location.href = `mailto:elitejunksolutionsutah@gmail.com?subject=${encodeURIComponent('Quote request (Website)')}&body=${body}`;
+  const params = new URLSearchParams({
+    formType: 'quote',
+    name:    inputs.find(i => i.type === 'text')?.value?.trim() || '',
+    phone:   inputs.find(i => i.type === 'tel')?.value?.trim() || '',
+    email:   inputs.find(i => i.type === 'email')?.value?.trim() || '',
+    address: inputs.find(i => i.placeholder?.includes('Street'))?.value?.trim() || '',
+    service: form.querySelector('select[required]')?.value?.trim() || '',
+    date:    inputs.find(i => i.type === 'date')?.value || '',
+    time:    form.querySelectorAll('select')[1]?.value || '',
+    notes:   form.querySelector('textarea')?.value?.trim() || ''
+  });
+  fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: params });
   document.getElementById('quoteFormSuccess').style.display = 'block';
   form.style.display = 'none';
 }

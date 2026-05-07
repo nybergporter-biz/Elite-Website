@@ -327,9 +327,13 @@ button { font-family: var(--font); }
 }
 .hero-phone-link:hover { color: rgba(255,255,255,0.95); }
 .hero-stats {
-  display: flex; align-items: center; justify-content: center; gap: 36px;
+  display: flex; align-items: stretch; gap: 10px;
   padding-top: 36px; border-top: 1px solid rgba(255,255,255,0.1);
-  grid-column: 1 / -1;
+}
+.hero-stat {
+  flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  background: rgba(0,0,0,0.3); border: 1.5px solid rgba(59,130,246,0.65);
+  border-radius: 10px; padding: 14px 10px; text-align: center;
 }
 .hero-stat .num {
   font-size: 28px; font-weight: 600; color: #fff; line-height: 1;
@@ -1259,6 +1263,20 @@ details.items-group--restricted[open] summary .ig-toggle { background: rgba(255,
             <a href="tel:3854415090" class="btn btn--primary btn--lg" style="letter-spacing:0.05em;font-weight:700;">CALL NOW: (385) 441-5090</a>
             <a href="sms:3854415090" class="btn btn--ghost btn--lg" style="letter-spacing:0.05em;font-weight:700;">TEXT PHOTOS FOR AN INSTANT QUOTE</a>
           </div>
+          <div class="hero-stats ha-4">
+            <div class="hero-stat">
+              <div class="num">Free</div>
+              <div class="label">Upfront estimate</div>
+            </div>
+            <div class="hero-stat">
+              <div class="num">Same day</div>
+              <div class="label">Often available</div>
+            </div>
+            <div class="hero-stat">
+              <div class="num">Upfront</div>
+              <div class="label">No hidden fees</div>
+            </div>
+          </div>
         </div>
 
         <!-- Quote Form Card -->
@@ -1296,23 +1314,6 @@ details.items-group--restricted[open] summary .ig-toggle { background: rgba(255,
             </form>
             <div id="heroFormSuccess" class="form-success">✅ Thanks! We'll be in touch within 24 hours.<br><strong>Same-day? Call (385) 441-5090</strong></div>
             <p class="form-note">🚨 Need same-day? <a href="tel:3854415090" style="color:var(--orange);font-weight:600;">(385) 441-5090</a></p>
-          </div>
-        </div>
-
-        <div class="hero-stats ha-4">
-          <div class="hero-stat">
-            <div class="num">Free</div>
-            <div class="label">Upfront estimate</div>
-          </div>
-          <div class="hero-stat-div"></div>
-          <div class="hero-stat">
-            <div class="num">Same day</div>
-            <div class="label">Often available</div>
-          </div>
-          <div class="hero-stat-div"></div>
-          <div class="hero-stat">
-            <div class="num">Upfront</div>
-            <div class="label">No hidden fees</div>
           </div>
         </div>
       </div>

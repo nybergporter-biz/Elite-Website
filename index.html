@@ -427,6 +427,28 @@ button { font-family: var(--font); }
   font-size: 12px; line-height: 1; cursor: pointer; display: flex;
   align-items: center; justify-content: center;
 }
+.slot-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+@media (max-width: 480px) { .slot-grid { grid-template-columns: repeat(3, 1fr); } }
+.slot-chip {
+  font-family: var(--font); font-size: 13px; font-weight: 500; color: var(--ink-mid);
+  background: var(--bg); border: 1.5px solid var(--border); border-radius: var(--r-sm);
+  padding: 9px 4px; cursor: pointer; text-align: center;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+.slot-chip:hover { border-color: var(--navy-400); color: var(--ink); }
+.slot-chip:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(40,120,200,0.2); }
+.slot-chip.selected { background: var(--orange); border-color: var(--orange); color: #fff; font-weight: 600; }
+.slot-chip:disabled {
+  background: var(--bg2); color: var(--ink-xlight); cursor: not-allowed;
+  text-decoration: line-through; border-style: dashed; opacity: 0.7;
+}
+.closed-note { display: none; font-size: 12.5px; color: var(--ink-light); margin-top: 8px; line-height: 1.5; }
+.closed-note.warn { color: #b45309; }
+.special-time-link {
+  display: inline-block; background: none; border: none; cursor: pointer; padding: 0;
+  font-family: var(--font); font-size: 13px; font-weight: 600; color: var(--orange); margin-top: 10px;
+}
+.special-time-link:hover { color: var(--orange-dark); text-decoration: underline; }
 
 /* ============================================================
    TRUST BAR
@@ -2381,13 +2403,20 @@ details.items-group--restricted[open] summary .ig-toggle { background: rgba(255,
         <div class="price-anchor">💡 <strong>Most jobs range from $89–$600</strong> depending on volume. We'll give you an exact price before we start.</div>
         <form onsubmit="submitQuoteForm(event)" id="mainQuoteForm">
           <div class="form-row">
-            <div class="field"><label>Your Name *</label><input type="text" placeholder="Full name" required></div>
-            <div class="field"><label>Phone Number *</label><input type="tel" placeholder="(801) 000-0000" required></div>
+            <div class="field"><label>First Name *</label><input type="text" id="qfFirstName" placeholder="First name" autocomplete="given-name" required></div>
+            <div class="field"><label>Last Name *</label><input type="text" id="qfLastName" placeholder="Last name" autocomplete="family-name" required></div>
           </div>
-          <div class="field"><label>Email Address *</label><input type="email" placeholder="you@email.com" required></div>
-          <div class="field"><label>Service Address *</label><input type="text" placeholder="Street address, city, ZIP" required></div>
+          <div class="form-row">
+            <div class="field"><label>Phone Number *</label><input type="tel" id="qfPhone" placeholder="(801) 000-0000" autocomplete="tel" required></div>
+            <div class="field"><label>Email Address *</label><input type="email" id="qfEmail" placeholder="you@email.com" autocomplete="email" required></div>
+          </div>
+          <div class="field"><label>Street Address *</label><input type="text" id="qfStreet" placeholder="123 Main St" autocomplete="street-address" required></div>
+          <div class="form-row">
+            <div class="field"><label>ZIP Code *</label><input type="text" id="qfZip" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" placeholder="84601" autocomplete="postal-code" oninput="zipAutofill(this.value)" required></div>
+            <div class="field"><label>City *</label><input type="text" id="qfCity" placeholder="Provo" autocomplete="address-level2" required></div>
+          </div>
           <div class="field"><label>Service Type *</label>
-            <select required>
+            <select id="qfService" required onchange="serviceTypeChanged(this)">
               <option value="">Select service...</option>
               <option>Residential Cleanout</option>
               <option>Commercial Cleanout</option>
@@ -2398,6 +2427,10 @@ details.items-group--restricted[open] summary .ig-toggle { background: rgba(255,
               <option>Cardboard Recycling</option>
               <option>Other / Multiple Services</option>
             </select>
+          </div>
+          <div class="field" id="customServiceField" style="display:none;">
+            <label>Describe your service *</label>
+            <input type="text" id="qfCustomService" placeholder="e.g., Hot tub removal, shed teardown + cleanout...">
           </div>
           <div class="field">
             <label>How much junk? *</label>
@@ -2416,18 +2449,26 @@ details.items-group--restricted[open] summary .ig-toggle { background: rgba(255,
               </button>
             </div>
           </div>
-          <div class="form-row">
-            <div class="field"><label>Preferred Date</label><input type="date"></div>
-            <div class="field"><label>Preferred Time</label>
-              <select>
-                <option value="">Any time</option>
-                <option>Morning (8:30 AM – 12 PM)</option>
-                <option>Afternoon (12 PM – 4 PM)</option>
-                <option>Late Afternoon (4 PM – 6 PM)</option>
-              </select>
+          <div class="field">
+            <label>What needs to go? *</label>
+            <textarea id="qfItems" rows="2" required placeholder="e.g., Sectional couch, treadmill, and about 10 boxes from the garage"></textarea>
+          </div>
+          <div class="field">
+            <label>Preferred Date</label>
+            <input type="date" id="qfDate" onchange="dateChanged(this)">
+            <div class="closed-note" id="dateNote"></div>
+          </div>
+          <div class="field" id="timeField" style="display:none;">
+            <label>Preferred Arrival Time</label>
+            <div class="slot-grid" id="slotGrid"></div>
+            <div class="closed-note" id="slotNote"></div>
+            <button type="button" class="special-time-link" id="specialTimeLink" onclick="toggleSpecialTime()">⚡ Urgent? Request an earlier or later time →</button>
+            <div id="specialTimeField" style="display:none;margin-top:10px;">
+              <input type="text" id="qfSpecialTime" placeholder="e.g., 7:00 AM before work — it's urgent">
+              <div class="closed-note" style="display:block;">For times outside our normal hours we'll confirm by phone.</div>
             </div>
           </div>
-          <div class="field"><label>Additional Notes</label><textarea rows="3" placeholder="Any other details about your junk removal needs..."></textarea></div>
+          <div class="field"><label>Additional Notes</label><textarea id="qfNotes" rows="3" placeholder="Gate codes, parking, stairs, anything else we should know..."></textarea></div>
           <div class="field">
             <label>Add photos for a faster quote (optional)</label>
             <button type="button" class="photo-upload-btn" onclick="document.getElementById('leadPhotoInput').click()">📷 Add photos <span style="color:var(--ink-xlight);font-weight:400;">(up to 5)</span></button>
@@ -2609,6 +2650,137 @@ function pickVolume(card) {
   document.querySelectorAll('#volumePicker .volume-card').forEach(c => c.classList.toggle('selected', c === card));
 }
 
+/* ---- ZIP → city autofill (Utah County service area; always editable) ---- */
+var ZIP_CITIES = {
+  '84601': 'Provo', '84602': 'Provo', '84604': 'Provo', '84606': 'Provo',
+  '84057': 'Orem', '84058': 'Orem', '84059': 'Vineyard', '84097': 'Orem',
+  '84043': 'Lehi', '84045': 'Saratoga Springs', '84005': 'Eagle Mountain',
+  '84003': 'American Fork', '84004': 'Alpine', '84042': 'Lindon',
+  '84062': 'Pleasant Grove', '84660': 'Spanish Fork', '84663': 'Springville',
+  '84664': 'Mapleton', '84651': 'Payson', '84653': 'Salem', '84655': 'Santaquin',
+  '84013': 'Cedar Fort', '84633': 'Goshen', '84626': 'Elberta', '84020': 'Draper'
+};
+function zipAutofill(zip) {
+  const city = ZIP_CITIES[String(zip).trim()];
+  if (city) document.getElementById('qfCity').value = city;
+}
+
+/* ---- Custom service type when "Other" is picked ---- */
+function serviceTypeChanged(sel) {
+  const isOther = sel.value.indexOf('Other') === 0;
+  document.getElementById('customServiceField').style.display = isOther ? 'block' : 'none';
+  const custom = document.getElementById('qfCustomService');
+  custom.required = isOther;
+  if (!isOther) custom.value = '';
+}
+
+/* ---- Availability-aware scheduling ----
+   Hours: Mon–Fri 9 AM–6 PM, Sat 9 AM–4 PM, closed Sunday.
+   Last arrival slot is 1 hour before close. Slots already booked in the
+   field app (booked_slots table) are crossed out. */
+var HOURS_BY_DAY = { 0: null, 1: [9, 18], 2: [9, 18], 3: [9, 18], 4: [9, 18], 5: [9, 18], 6: [9, 16] };
+var selectedSlot = '';
+
+function localDateStr(d) {
+  return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+}
+function fmtSlot(mins) {
+  let h = Math.floor(mins / 60), m = mins % 60;
+  const ap = h >= 12 ? 'PM' : 'AM';
+  h = h % 12 || 12;
+  return h + ':' + String(m).padStart(2, '0') + ' ' + ap;
+}
+function timeToMins(t) { // "13:30:00" → 810
+  if (!t) return null;
+  const p = String(t).split(':');
+  return Number(p[0]) * 60 + Number(p[1] || 0);
+}
+
+async function dateChanged(input) {
+  const note = document.getElementById('dateNote');
+  const timeField = document.getElementById('timeField');
+  selectedSlot = '';
+  note.style.display = 'none';
+  if (!input.value) { timeField.style.display = 'none'; return; }
+
+  const [y, m, d] = input.value.split('-').map(Number);
+  const day = new Date(y, m - 1, d).getDay();
+  if (day === 0) {
+    input.value = '';
+    timeField.style.display = 'none';
+    note.textContent = "We're closed Sundays — pick any other day and we'll be there.";
+    note.className = 'closed-note warn';
+    note.style.display = 'block';
+    return;
+  }
+
+  timeField.style.display = 'block';
+  const grid = document.getElementById('slotGrid');
+  grid.innerHTML = '<div style="grid-column:1/-1;font-size:13px;color:var(--ink-light);">Checking our schedule…</div>';
+
+  let booked = [];
+  try {
+    if (sb) {
+      const { data } = await sb.from('booked_slots').select('start_time,end_time').eq('date', input.value);
+      booked = data || [];
+    }
+  } catch (err) { /* can't read schedule — show all business hours */ }
+  renderSlots(input.value, day, booked);
+}
+
+function renderSlots(dateStr, day, booked) {
+  const grid = document.getElementById('slotGrid');
+  const slotNote = document.getElementById('slotNote');
+  const [open, close] = HOURS_BY_DAY[day];
+  const windows = booked
+    .map(b => ({ start: timeToMins(b.start_time), end: timeToMins(b.end_time) }))
+    .filter(w => w.start != null)
+    .map(w => ({ start: w.start, end: w.end != null ? w.end : w.start + 120 }));
+
+  const today = localDateStr(new Date()) === dateStr;
+  const nowMins = new Date().getHours() * 60 + new Date().getMinutes();
+
+  let html = '';
+  let anyOpen = false;
+  for (let t = open * 60; t <= (close - 1) * 60; t += 30) {
+    const isBooked = windows.some(w => t >= w.start && t < w.end);
+    const tooSoon = today && t < nowMins + 60;
+    const disabled = isBooked || tooSoon;
+    if (!disabled) anyOpen = true;
+    html += '<button type="button" class="slot-chip" ' + (disabled ? 'disabled' : '') +
+      ' data-slot="' + fmtSlot(t) + '" onclick="pickSlot(this)">' + fmtSlot(t) + '</button>';
+  }
+  grid.innerHTML = html;
+  slotNote.className = 'closed-note';
+  if (!anyOpen) {
+    slotNote.textContent = today
+      ? "Nothing left today — pick another day, or request a special time below and we'll make it work."
+      : "We're fully booked that day — pick another day, or request a special time below and we'll make it work.";
+    slotNote.className = 'closed-note warn';
+    slotNote.style.display = 'block';
+  } else {
+    slotNote.style.display = 'none';
+  }
+}
+
+function pickSlot(chip) {
+  selectedSlot = chip.dataset.slot;
+  document.querySelectorAll('#slotGrid .slot-chip').forEach(c => c.classList.toggle('selected', c === chip));
+}
+
+function toggleSpecialTime() {
+  const f = document.getElementById('specialTimeField');
+  const show = f.style.display === 'none';
+  f.style.display = show ? 'block' : 'none';
+  if (show) document.getElementById('qfSpecialTime').focus();
+}
+
+/* earliest selectable date = today */
+(function () {
+  const dateInput = document.getElementById('qfDate');
+  if (dateInput) dateInput.min = localDateStr(new Date());
+})();
+
 /* ---- Photo upload (max 5, compressed client-side) ---- */
 var leadPhotos = [];
 
@@ -2702,19 +2874,35 @@ async function submitQuoteForm(e) {
   const btn = document.getElementById('quoteSubmitBtn');
   const errBox = document.getElementById('quoteFormError');
   errBox.style.display = 'none';
+
+  const val = (id) => (document.getElementById(id)?.value || '').trim();
+
+  // Load size is required — the picker can't carry a native `required` flag
+  if (!selectedVolume) {
+    errBox.innerHTML = '👆 <strong>Almost there!</strong> Please choose a load size — Small, Medium, or Large.';
+    errBox.style.display = 'block';
+    document.getElementById('volumePicker').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    lastSubmitAttempt = 0; // let them resubmit immediately after fixing
+    return;
+  }
+
   btn.disabled = true;
   btn.textContent = leadPhotos.length ? 'Uploading photos…' : 'Sending…';
 
-  const inputs = Array.from(form.querySelectorAll('input, select, textarea'));
+  let service = val('qfService');
+  if (service.indexOf('Other') === 0 && val('qfCustomService')) service = val('qfCustomService');
+  const special = val('qfSpecialTime');
+
   const lead = {
-    name:    inputs.find(i => i.type === 'text')?.value?.trim() || '',
-    phone:   inputs.find(i => i.type === 'tel')?.value?.trim() || '',
-    email:   inputs.find(i => i.type === 'email')?.value?.trim() || '',
-    address: inputs.find(i => i.placeholder?.includes('Street'))?.value?.trim() || '',
-    service: form.querySelector('select[required]')?.value?.trim() || '',
-    date:    inputs.find(i => i.type === 'date')?.value || '',
-    time:    form.querySelectorAll('select')[1]?.value || '',
-    notes:   form.querySelector('textarea')?.value?.trim() || ''
+    name:    (val('qfFirstName') + ' ' + val('qfLastName')).trim(),
+    phone:   val('qfPhone'),
+    email:   val('qfEmail'),
+    address: [val('qfStreet'), val('qfCity'), 'UT ' + val('qfZip')].filter(Boolean).join(', '),
+    service: service,
+    items:   val('qfItems'),
+    date:    val('qfDate'),
+    time:    special ? 'Special request: ' + special : selectedSlot,
+    notes:   val('qfNotes')
   };
 
   // Legacy Google Sheets log (kept as a backup record)
@@ -2740,6 +2928,7 @@ async function submitQuoteForm(e) {
       service_address: lead.address || null,
       service_type: lead.service || null,
       volume_estimate: selectedVolume || null,
+      items_description: lead.items || null,
       preferred_date: lead.date || null,
       preferred_time: lead.time || null,
       notes: lead.notes || null,

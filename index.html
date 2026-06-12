@@ -378,6 +378,55 @@ button { font-family: var(--font); }
   border-radius: var(--r-sm); padding: 16px 20px; font-size: 14px;
   color: #166534; font-weight: 500; text-align: center; margin-top: 12px;
 }
+.form-error {
+  display: none; background: #fef2f2; border: 1px solid #fecaca;
+  border-radius: var(--r-sm); padding: 16px 20px; font-size: 14px;
+  color: #991b1b; font-weight: 500; text-align: center; margin-top: 12px;
+}
+.price-anchor {
+  background: var(--orange-pale); border: 1px solid rgba(232,92,26,0.25);
+  border-radius: var(--r-sm); padding: 12px 16px; font-size: 13.5px;
+  color: var(--ink-mid); margin-bottom: 18px; line-height: 1.5;
+}
+.price-anchor strong { color: var(--ink); }
+.volume-picker { display: grid; grid-template-columns: 1fr; gap: 10px; }
+.volume-card {
+  display: flex; align-items: center; gap: 12px; text-align: left;
+  background: var(--bg); border: 1.5px solid var(--border); border-radius: var(--r-sm);
+  padding: 12px 14px; cursor: pointer; width: 100%; font-family: var(--font);
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+.volume-card:hover { border-color: var(--navy-400); }
+.volume-card:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(40,120,200,0.2); }
+.volume-card:active { background: var(--bg2); }
+.volume-card.selected {
+  border-color: var(--orange); background: var(--orange-pale);
+  box-shadow: 0 0 0 3px rgba(232,92,26,0.12);
+}
+.volume-card .vc-emoji { font-size: 24px; flex-shrink: 0; }
+.volume-card .vc-name { font-size: 14px; font-weight: 600; color: var(--ink); }
+.volume-card .vc-desc { font-size: 12.5px; color: var(--ink-light); margin-top: 1px; line-height: 1.4; }
+.photo-upload-btn {
+  display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%;
+  background: var(--bg); border: 1.5px dashed var(--border); border-radius: var(--r-sm);
+  padding: 14px; font-family: var(--font); font-size: 14px; font-weight: 500;
+  color: var(--ink-mid); cursor: pointer; transition: border-color 0.2s, color 0.2s;
+}
+.photo-upload-btn:hover { border-color: var(--navy-400); color: var(--ink); }
+.photo-upload-btn:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(40,120,200,0.2); }
+.photo-previews { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+.photo-previews:empty { display: none; }
+.photo-thumb { position: relative; width: 64px; height: 64px; }
+.photo-thumb img {
+  width: 100%; height: 100%; object-fit: cover;
+  border-radius: var(--r-sm); border: 1px solid var(--border); display: block;
+}
+.photo-thumb button {
+  position: absolute; top: -6px; right: -6px; width: 20px; height: 20px;
+  border-radius: 50%; background: var(--ink); color: #fff; border: none;
+  font-size: 12px; line-height: 1; cursor: pointer; display: flex;
+  align-items: center; justify-content: center;
+}
 
 /* ============================================================
    TRUST BAR
@@ -2329,6 +2378,7 @@ details.items-group--restricted[open] summary .ig-toggle { background: rgba(255,
       <div class="quote-form-inner reveal">
         <div class="quote-form-title">Request a Pickup</div>
         <p class="quote-form-sub">Fill out the form and we'll respond within 24 hours.</p>
+        <div class="price-anchor">💡 <strong>Most jobs range from $89–$600</strong> depending on volume. We'll give you an exact price before we start.</div>
         <form onsubmit="submitQuoteForm(event)" id="mainQuoteForm">
           <div class="form-row">
             <div class="field"><label>Your Name *</label><input type="text" placeholder="Full name" required></div>
@@ -2349,6 +2399,23 @@ details.items-group--restricted[open] summary .ig-toggle { background: rgba(255,
               <option>Other / Multiple Services</option>
             </select>
           </div>
+          <div class="field">
+            <label>How much junk? *</label>
+            <div class="volume-picker" id="volumePicker" role="radiogroup" aria-label="Volume estimate">
+              <button type="button" class="volume-card" data-volume="Small Load" onclick="pickVolume(this)">
+                <span class="vc-emoji">🛋</span>
+                <span><span class="vc-name">Small Load</span><br><span class="vc-desc">A few items, like a couch and some boxes</span></span>
+              </button>
+              <button type="button" class="volume-card" data-volume="Medium Load" onclick="pickVolume(this)">
+                <span class="vc-emoji">🚛</span>
+                <span><span class="vc-name">Medium Load</span><br><span class="vc-desc">Half a truckload, like a room cleanout</span></span>
+              </button>
+              <button type="button" class="volume-card" data-volume="Large Load" onclick="pickVolume(this)">
+                <span class="vc-emoji">🏠</span>
+                <span><span class="vc-name">Large Load</span><br><span class="vc-desc">Full truck or more, like a garage/estate cleanout</span></span>
+              </button>
+            </div>
+          </div>
           <div class="form-row">
             <div class="field"><label>Preferred Date</label><input type="date"></div>
             <div class="field"><label>Preferred Time</label>
@@ -2361,11 +2428,20 @@ details.items-group--restricted[open] summary .ig-toggle { background: rgba(255,
             </div>
           </div>
           <div class="field"><label>Additional Notes</label><textarea rows="3" placeholder="Any other details about your junk removal needs..."></textarea></div>
-          <button type="submit" class="btn btn--primary btn--lg" style="width:100%;margin-top:8px;">Submit Quote Request →</button>
+          <div class="field">
+            <label>Add photos for a faster quote (optional)</label>
+            <button type="button" class="photo-upload-btn" onclick="document.getElementById('leadPhotoInput').click()">📷 Add photos <span style="color:var(--ink-xlight);font-weight:400;">(up to 5)</span></button>
+            <input type="file" id="leadPhotoInput" accept="image/*" capture="environment" multiple style="display:none;" onchange="addLeadPhotos(this)">
+            <div class="photo-previews" id="photoPreviews"></div>
+          </div>
+          <button type="submit" class="btn btn--primary btn--lg" id="quoteSubmitBtn" style="width:100%;margin-top:8px;">Submit Quote Request →</button>
         </form>
         <div class="form-success" id="quoteFormSuccess" style="margin-top:20px;">
-          ✅ <strong>Thanks! We've received your request.</strong> We'll respond within 24 hours.<br>
-          <span style="font-size:13px;margin-top:6px;display:block;">For same-day: <a href="tel:3854415090" style="color:var(--navy-500);font-weight:700;">(385) 441-5090</a></span>
+          ✅ <strong>Request received!</strong> We'll reach out within the hour — sooner if you added photos.<br>
+          <span style="font-size:13px;margin-top:6px;display:block;">Same-day? Call <a href="tel:3854415090" style="color:var(--navy-500);font-weight:700;">(385) 441-5090</a></span>
+        </div>
+        <div class="form-error" id="quoteFormError" style="margin-top:20px;">
+          😕 <strong>Something went wrong sending your request.</strong> Please try again — or just call/text us at <a href="tel:3854415090" style="color:#991b1b;font-weight:700;">(385) 441-5090</a> and we'll get you taken care of.
         </div>
       </div>
     </div>
@@ -2467,6 +2543,7 @@ details.items-group--restricted[open] summary .ig-toggle { background: rgba(255,
   </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script>
 /* ---- Navigation ---- */
 function showPage(id) {
@@ -2499,27 +2576,137 @@ function initReveal() {
 /* ---- Forms ---- */
 var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz2DaIHe99b6ehPPlMTVb4bHZ8wIEm6Q_tW0tHPs7sL69C6V9n208ik8iKcTshK0o2P/exec';
 
+/* Supabase — leads land in the lead_requests table and appear in the field app instantly. */
+var SB_URL = 'https://lfvuehgzomqjptcondbq.supabase.co';
+var SB_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxmdnVlaGd6b21xanB0Y29uZGJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA0MzQ4MjksImV4cCI6MjA5NjAxMDgyOX0.c5MXBtXZs8DR4L-AtuuC4u8qcITizxKI3LxFEMzRjRo';
+var sb = window.supabase ? window.supabase.createClient(SB_URL, SB_ANON_KEY) : null;
+
 function submitHeroForm(e) {
   e.preventDefault();
   const form = e.target;
-  const params = new URLSearchParams({
-    formType: 'hero',
+  const lead = {
     name:    form.querySelector('input[type="text"]')?.value?.trim() || '',
     phone:   form.querySelector('input[type="tel"]')?.value?.trim() || '',
     email:   form.querySelector('input[type="email"]')?.value?.trim() || '',
     service: form.querySelector('select')?.value?.trim() || ''
-  });
-  fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: params });
+  };
+  // Legacy Google Sheets log (kept as a backup record)
+  fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: new URLSearchParams({ formType: 'hero', ...lead }) });
+  if (sb) {
+    sb.from('lead_requests').insert({
+      name: lead.name, phone: lead.phone, email: lead.email || null,
+      service_type: lead.service || null, notes: 'Submitted via homepage hero form'
+    }).then(() => {});
+  }
   document.getElementById('heroFormSuccess').style.display = 'block';
   form.style.display = 'none';
 }
 
-function submitQuoteForm(e) {
+/* ---- Volume picker ---- */
+var selectedVolume = '';
+function pickVolume(card) {
+  selectedVolume = card.dataset.volume;
+  document.querySelectorAll('#volumePicker .volume-card').forEach(c => c.classList.toggle('selected', c === card));
+}
+
+/* ---- Photo upload (max 5, compressed client-side) ---- */
+var leadPhotos = [];
+
+async function compressImage(file, maxSizeKB = 400) {
+  return new Promise((resolve) => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        let { width, height } = img;
+        const maxDim = 1600;
+        if (width > maxDim || height > maxDim) {
+          const ratio = Math.min(maxDim / width, maxDim / height);
+          width = Math.round(width * ratio);
+          height = Math.round(height * ratio);
+        }
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, width, height);
+        let quality = 0.85;
+        const tryCompress = () => {
+          canvas.toBlob((blob) => {
+            if (blob.size <= maxSizeKB * 1024 || quality < 0.3) {
+              resolve(new File([blob], file.name, { type: 'image/jpeg' }));
+            } else {
+              quality -= 0.1;
+              tryCompress();
+            }
+          }, 'image/jpeg', quality);
+        };
+        tryCompress();
+      };
+      img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+function addLeadPhotos(input) {
+  const files = Array.from(input.files || []);
+  for (const f of files) {
+    if (leadPhotos.length >= 5) break;
+    leadPhotos.push({ file: f, url: URL.createObjectURL(f) });
+  }
+  input.value = '';
+  renderPhotoPreviews();
+}
+
+function removeLeadPhoto(i) {
+  URL.revokeObjectURL(leadPhotos[i].url);
+  leadPhotos.splice(i, 1);
+  renderPhotoPreviews();
+}
+
+function renderPhotoPreviews() {
+  const wrap = document.getElementById('photoPreviews');
+  wrap.innerHTML = leadPhotos.map((p, i) =>
+    '<div class="photo-thumb"><img src="' + p.url + '" alt="Photo ' + (i + 1) + '">' +
+    '<button type="button" aria-label="Remove photo" onclick="removeLeadPhoto(' + i + ')">×</button></div>'
+  ).join('');
+}
+
+/* ---- Main quote form: compress → upload → insert ---- */
+var DUP_KEY = 'ejs.leadSubmittedAt';
+var lastSubmitAttempt = 0;
+
+async function submitQuoteForm(e) {
   e.preventDefault();
+
+  // Debounce: ignore rapid double-taps
+  const now = Date.now();
+  if (now - lastSubmitAttempt < 5000) return;
+  lastSubmitAttempt = now;
+
+  // Same device re-submitting within 30 minutes → we already have it
+  try {
+    const prev = Number(localStorage.getItem(DUP_KEY) || 0);
+    if (prev && now - prev < 30 * 60 * 1000) {
+      const ok = document.getElementById('quoteFormSuccess');
+      ok.innerHTML = '✅ <strong>We already have your request!</strong> We\'ll call you soon.<br>' +
+        '<span style="font-size:13px;margin-top:6px;display:block;">Need us now? <a href="tel:3854415090" style="color:var(--navy-500);font-weight:700;">(385) 441-5090</a></span>';
+      ok.style.display = 'block';
+      document.getElementById('mainQuoteForm').style.display = 'none';
+      return;
+    }
+  } catch (err) { /* private mode — continue */ }
+
   const form = document.getElementById('mainQuoteForm');
+  const btn = document.getElementById('quoteSubmitBtn');
+  const errBox = document.getElementById('quoteFormError');
+  errBox.style.display = 'none';
+  btn.disabled = true;
+  btn.textContent = leadPhotos.length ? 'Uploading photos…' : 'Sending…';
+
   const inputs = Array.from(form.querySelectorAll('input, select, textarea'));
-  const params = new URLSearchParams({
-    formType: 'quote',
+  const lead = {
     name:    inputs.find(i => i.type === 'text')?.value?.trim() || '',
     phone:   inputs.find(i => i.type === 'tel')?.value?.trim() || '',
     email:   inputs.find(i => i.type === 'email')?.value?.trim() || '',
@@ -2528,10 +2715,47 @@ function submitQuoteForm(e) {
     date:    inputs.find(i => i.type === 'date')?.value || '',
     time:    form.querySelectorAll('select')[1]?.value || '',
     notes:   form.querySelector('textarea')?.value?.trim() || ''
-  });
-  fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: params });
-  document.getElementById('quoteFormSuccess').style.display = 'block';
-  form.style.display = 'none';
+  };
+
+  // Legacy Google Sheets log (kept as a backup record)
+  fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: new URLSearchParams({ formType: 'quote', ...lead, volume: selectedVolume }) });
+
+  try {
+    if (!sb) throw new Error('Supabase unavailable');
+
+    // Compress + upload photos in parallel; store bucket-relative paths only
+    const folder = crypto.randomUUID();
+    const photoPaths = await Promise.all(leadPhotos.map(async (p, i) => {
+      const compressed = await compressImage(p.file);
+      const path = folder + '/photo-' + (i + 1) + '.jpg';
+      const { error } = await sb.storage.from('lead-photos').upload(path, compressed, { contentType: 'image/jpeg' });
+      if (error) throw error;
+      return path;
+    }));
+
+    const { error: insertError } = await sb.from('lead_requests').insert({
+      name: lead.name,
+      phone: lead.phone,
+      email: lead.email || null,
+      service_address: lead.address || null,
+      service_type: lead.service || null,
+      volume_estimate: selectedVolume || null,
+      preferred_date: lead.date || null,
+      preferred_time: lead.time || null,
+      notes: lead.notes || null,
+      photo_urls: photoPaths
+    });
+    if (insertError) throw insertError;
+
+    try { localStorage.setItem(DUP_KEY, String(Date.now())); } catch (err) { /* ignore */ }
+    document.getElementById('quoteFormSuccess').style.display = 'block';
+    form.style.display = 'none';
+  } catch (err) {
+    console.error('Lead submission failed:', err);
+    btn.disabled = false;
+    btn.textContent = 'Submit Quote Request →';
+    errBox.style.display = 'block';
+  }
 }
 
 /* ---- Popup ---- */

@@ -8,19 +8,27 @@
 <meta name="keywords" content="junk removal Utah County, junk hauling Orem Provo Lehi, same-day junk removal Utah, appliance removal Utah County, cleanout services American Fork Pleasant Grove">
 <link rel="canonical" href="https://www.elitejunkut.com/">
 
+<!-- Favicons -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
 <!-- Open Graph (Facebook, iMessage, LinkedIn link previews) -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Elite Junk Solutions">
 <meta property="og:title" content="Elite Junk Solutions | Junk Removal Utah County, Utah">
 <meta property="og:description" content="Fast, affordable junk removal in Utah County—same-day service available. Serving Orem, Provo, Lehi, American Fork & more. Call (385) 441-5090.">
 <meta property="og:url" content="https://www.elitejunkut.com/">
-<meta property="og:image" content="https://www.elitejunkut.com/brand_assets%20copy/Image%20(1).png">
+<meta property="og:image" content="https://www.elitejunkut.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 
 <!-- Twitter/X card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Elite Junk Solutions | Junk Removal Utah County, Utah">
 <meta name="twitter:description" content="Fast, affordable junk removal in Utah County—same-day service available. Call (385) 441-5090.">
-<meta name="twitter:image" content="https://www.elitejunkut.com/brand_assets%20copy/Image%20(1).png">
+<meta name="twitter:image" content="https://www.elitejunkut.com/og-image.png">
 
 <!-- LocalBusiness structured data (helps Google understand your service area, hours & contact) -->
 <script type="application/ld+json">
@@ -2633,7 +2641,7 @@ details.items-group--restricted[open] summary .ig-toggle { background: rgba(255,
       </div>
     </div>
   </div>
-  <div class="footer-bottom">&copy; 2025 Elite Junk Solutions | Utah County, UT | elitejunkut.com</div>
+  <div class="footer-bottom">&copy; 2026 Elite Junk Solutions | Utah County, UT | elitejunkut.com</div>
 </footer>
 
 <!-- STICKY MOBILE CALL -->
@@ -3092,8 +3100,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const popup = document.getElementById('quotePopup');
   if (popup) popup.addEventListener('click', e => { if (e.target === popup) closePopup(); });
   const reviewBtn = document.getElementById('reviewsLeaveReviewBtn');
-  if (reviewBtn) reviewBtn.addEventListener('click', e => { e.preventDefault(); alert('Add your Google review link to enable this button.'); });
+  // Only block the click while the link is still a placeholder; once a real
+  // Google review URL is in the href, let the button work normally.
+  if (reviewBtn) reviewBtn.addEventListener('click', e => {
+    if ((reviewBtn.getAttribute('href') || '').indexOf('YOUR_PLACE_ID') !== -1) {
+      e.preventDefault();
+      alert('Add your Google review link to enable this button.');
+    }
+  });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeLightbox(); closePopup(); } });
+
+  // Deep-link support: open the right section when arriving at /#page-<id>
+  // (used by the city landing pages' nav links).
+  const h = window.location.hash;
+  if (h && h.indexOf('#page-') === 0) {
+    showPage(h.replace('#page-', ''));
+  }
 });
 </script>
 </body>

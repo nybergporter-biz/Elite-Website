@@ -1681,25 +1681,8 @@ details.items-group--restricted[open] summary .ig-toggle { background: rgba(255,
         <h2 class="t-heading reveal">Don't take our word for it.</h2>
         <p class="t-body-lg reveal reveal-d1">Real reviews from homeowners, realtors, and contractors across Utah County.</p>
       </div>
-      <div class="reviews-grid">
-        <div class="review-card reveal">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">"Showed up on time, gave me an upfront price, and had everything loaded in under an hour. Even swept the garage floor. Can't recommend them enough!"</p>
-          <div class="review-name">Sarah M.</div>
-          <div class="review-type">Homeowner</div>
-        </div>
-        <div class="review-card reveal reveal-d1">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">"I manage several rental properties and use Elite Junk Solutions every time a tenant moves out. Fast, professional, and always on schedule."</p>
-          <div class="review-name">James R.</div>
-          <div class="review-type">Property Manager</div>
-        </div>
-        <div class="review-card reveal reveal-d2">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">"Needed same-day pickup before a listing — called in the morning, they were there by noon. Seriously impressive response time."</p>
-          <div class="review-name">Lisa T.</div>
-          <div class="review-type">Realtor</div>
-        </div>
+      <div class="reviews-grid" id="reviewsPreviewGrid" data-reviews-loading>
+        <p class="reviews-loading-msg" style="grid-column:1/-1;text-align:center;color:var(--ink-light);">Loading reviews…</p>
       </div>
       <div style="text-align:center;margin-top:36px;" class="reveal">
         <a href="#" class="btn btn--outline" onclick="showPage('reviews');return false;">Read more reviews →</a>
@@ -2368,16 +2351,8 @@ details.items-group--restricted[open] summary .ig-toggle { background: rgba(255,
 
   <section class="section">
     <div class="container">
-      <div class="reviews-grid" id="reviewsGrid">
-        <div class="review-card reveal"><div class="review-stars">★★★★★</div><p class="review-text">"Showed up on time, gave me an upfront price, and had everything loaded in under an hour. Even swept the garage floor. Can't recommend them enough!"</p><div class="review-name">Sarah M.</div><div class="review-type">Homeowner</div></div>
-        <div class="review-card reveal reveal-d1"><div class="review-stars">★★★★★</div><p class="review-text">"I manage several rental properties and use Elite Junk Solutions every time a tenant moves out. Fast, professional, and always on schedule."</p><div class="review-name">James R.</div><div class="review-type">Property Manager</div></div>
-        <div class="review-card reveal reveal-d2"><div class="review-stars">★★★★★</div><p class="review-text">"Needed same-day pickup before a listing — called in the morning and they were there by noon. Seriously impressive response time."</p><div class="review-name">Lisa T.</div><div class="review-type">Realtor</div></div>
-        <div class="review-card reveal"><div class="review-stars">★★★★★</div><p class="review-text">"Used them to clear out a full garage and basement after my parents moved. Respectful, efficient, and made a huge job feel easy."</p><div class="review-name">David K.</div><div class="review-type">Homeowner</div></div>
-        <div class="review-card reveal reveal-d1"><div class="review-stars">★★★★★</div><p class="review-text">"Quick, clean, and professional. Construction debris from a bathroom remodel. They came, loaded it up, swept the area, and were gone."</p><div class="review-name">Mike H.</div><div class="review-type">Contractor</div></div>
-        <div class="review-card reveal reveal-d2"><div class="review-stars">★★★★★</div><p class="review-text">"Very easy to work with. Texted them a photo, got a price quickly, scheduled the same week. Polite team, worked quickly. Will use again."</p><div class="review-name">Amanda C.</div><div class="review-type">Homeowner</div></div>
-        <div class="review-card reveal"><div class="review-stars">★★★★★</div><p class="review-text">"Called for construction debris after a bathroom gut. They came next morning, loaded everything fast, and swept the site. Exactly what I needed — will be using them on every job."</p><div class="review-name">Kevin B.</div><div class="review-type">Contractor</div></div>
-        <div class="review-card reveal reveal-d1"><div class="review-stars">★★★★★</div><p class="review-text">"My tenant left the unit absolutely full of junk. One call to Elite Junk Solutions and it was cleared out within two days. Couldn't be easier."</p><div class="review-name">Rachel S.</div><div class="review-type">Landlord</div></div>
-        <div class="review-card reveal reveal-d2"><div class="review-stars">★★★★★</div><p class="review-text">"Cleared out 20 years of stuff from the garage in one shot. The guys were professional, careful not to damage walls or flooring, and left it cleaner than they found it."</p><div class="review-name">Tom W.</div><div class="review-type">Homeowner</div></div>
+      <div class="reviews-grid" id="reviewsGrid" data-reviews-loading>
+        <p class="reviews-loading-msg" style="grid-column:1/-1;text-align:center;color:var(--ink-light);">Loading reviews…</p>
       </div>
       <div id="reviewsLeaveReviewCta" style="text-align:center;margin-top:64px;padding:48px;background:var(--bg);border-radius:var(--r-xl);border:1px solid var(--border);" class="reveal">
         <h3 style="font-size:24px;font-weight:600;margin-bottom:10px;">Had a great experience?</h3>
@@ -2701,6 +2676,99 @@ function initReveal() {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
   }, { threshold: 0.08 });
   els.forEach(el => obs.observe(el));
+}
+
+/* ---- Google Reviews (live, via Featurable) ------------------------------
+   Reviews are pulled from the Featurable widget feed, which refreshes from
+   Google automatically (~every 48h). To point this at your account:
+   create a free widget at featurable.com, then Embed > API, copy the
+   widget ID, and paste it below. Use "example" only for testing.        */
+var FEATURABLE_WIDGET_ID = '455814a3-832e-4fec-a2ec-b0a67541b4c0'; // Featurable widget (Embed > API)
+var REVIEWS_PREVIEW_COUNT = 3;   // cards shown on the homepage preview
+var REVIEWS_PAGE_COUNT   = 12;   // cards shown on the full Reviews page
+
+function escapeHtml(s) {
+  return String(s == null ? '' : s)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+function reviewRelativeDate(iso) {
+  if (!iso) return 'Google Review';
+  var then = new Date(iso).getTime();
+  if (isNaN(then)) return 'Google Review';
+  var days = Math.floor((Date.now() - then) / 86400000);
+  if (days < 1)   return 'Today';
+  if (days < 2)   return 'Yesterday';
+  if (days < 7)   return days + ' days ago';
+  if (days < 14)  return 'a week ago';
+  if (days < 31)  return Math.floor(days / 7) + ' weeks ago';
+  if (days < 61)  return 'a month ago';
+  if (days < 365) return Math.floor(days / 30) + ' months ago';
+  var yrs = Math.floor(days / 365);
+  return yrs === 1 ? 'a year ago' : yrs + ' years ago';
+}
+
+function reviewCardHtml(r, i) {
+  var rating = Math.max(0, Math.min(5, Math.round(r.starRating || 5)));
+  var stars  = '★'.repeat(rating);
+  if (rating < 5) stars += '<span style="color:#d1d5db;">' + '★'.repeat(5 - rating) + '</span>';
+  var name = (r.reviewer && r.reviewer.displayName) ? r.reviewer.displayName : 'Google Customer';
+  var text = (r.comment || '').trim();
+  if (text.length > 300) text = text.slice(0, 297).trim() + '…';
+  var delay = ['', 'reveal-d1', 'reveal-d2'][i % 3];
+  return '<div class="review-card reveal ' + delay + '">' +
+           '<div class="review-stars">' + stars + '</div>' +
+           '<p class="review-text">“' + escapeHtml(text) + '”</p>' +
+           '<div class="review-name">' + escapeHtml(name) + '</div>' +
+           '<div class="review-type">' + escapeHtml(reviewRelativeDate(r.updateTime || r.createTime)) + ' · Google</div>' +
+         '</div>';
+}
+
+function fillReviewsGrid(el, reviews) {
+  if (!el) return;
+  if (!reviews.length) {
+    el.innerHTML = '<p class="reviews-loading-msg" style="grid-column:1/-1;text-align:center;color:var(--ink-light);">' +
+      'Reviews are on their way. <a href="https://g.page/r/Cb_k-8IJP3G_EBM/review" target="_blank" rel="noopener">Be the first to leave one on Google →</a></p>';
+    return;
+  }
+  el.innerHTML = reviews.map(reviewCardHtml).join('');
+  el.removeAttribute('data-reviews-loading');
+}
+
+function initGoogleReviews() {
+  var preview = document.getElementById('reviewsPreviewGrid');
+  var full    = document.getElementById('reviewsGrid');
+  if (!preview && !full) return;
+
+  if (!FEATURABLE_WIDGET_ID) {
+    var pending = '<p class="reviews-loading-msg" style="grid-column:1/-1;text-align:center;color:var(--ink-light);">' +
+      'Read our latest reviews <a href="https://g.page/r/Cb_k-8IJP3G_EBM/review" target="_blank" rel="noopener">on Google →</a></p>';
+    if (preview) preview.innerHTML = pending;
+    if (full) full.innerHTML = pending;
+    return;
+  }
+
+  fetch('https://featurable.com/api/v1/widgets/' + FEATURABLE_WIDGET_ID)
+    .then(function (res) { if (!res.ok) throw new Error('HTTP ' + res.status); return res.json(); })
+    .then(function (data) {
+      var reviews = (data && data.reviews ? data.reviews : [])
+        .filter(function (r) { return r && (r.comment || '').trim().length > 0; });
+      // Newest first
+      reviews.sort(function (a, b) {
+        return new Date(b.updateTime || b.createTime || 0) - new Date(a.updateTime || a.createTime || 0);
+      });
+      fillReviewsGrid(preview, reviews.slice(0, REVIEWS_PREVIEW_COUNT));
+      fillReviewsGrid(full, reviews.slice(0, REVIEWS_PAGE_COUNT));
+      initReveal();
+    })
+    .catch(function (err) {
+      console.error('Could not load Google reviews:', err);
+      var msg = '<p class="reviews-loading-msg" style="grid-column:1/-1;text-align:center;color:var(--ink-light);">' +
+        'Read our latest reviews <a href="https://g.page/r/Cb_k-8IJP3G_EBM/review" target="_blank" rel="noopener">on Google →</a></p>';
+      if (preview) preview.innerHTML = msg;
+      if (full) full.innerHTML = msg;
+    });
 }
 
 /* ---- Forms ---- */
@@ -3092,6 +3160,7 @@ function initCarousel(scrollId) {
 /* ---- Init ---- */
 document.addEventListener('DOMContentLoaded', () => {
   initReveal();
+  initGoogleReviews();
   initCarousel('cc-residential');
   initCarousel('cc-commercial');
   const lb = document.getElementById('galleryLightbox');
